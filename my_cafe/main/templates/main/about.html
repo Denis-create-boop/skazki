@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+{%block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}" />
+{% endblock %} 
+
+{% block content %}
+    <div class="mt-3 pt-4 bg-white custom-shadow rounded">
+        <h2 class="m-2"><strong>{{ content }}</strong></h2>
+        <p class="m-3">{{ text_on_page.1 }}</p>
+        <hr>
+        <p class="m-3">{{ text_on_page.2 }}</p>
+        <hr>
+        <p class="m-3 pb-3">{{ text_on_page.3 }}</p>
+    </di>
+{% endblock %} 
+
+{% block footer %}
+    <footer class="py-2 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">
+                <a href="https://github.com/Denis-create-boop">-- By Denis-create-boop --</a>
+            </p>
+        </div>
+    </footer>
+{% endblock %}

@@ -18,38 +18,108 @@
     </head>
 
     <body>
+        <div class="up_fon">
+            <img src="/static/deps/images/bg-image.jpg" alt="" width="80%" height="350px"> 
+        </div>
         <header>
-            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-                <div class="container">
-                    <a class="navbar-brand" href="{% url 'main:index' %}">Главная</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Информация
+            <nav class="navbar-expand-lg" data-bs-theme="dark">
+ 
+                    <div class="collapse navbar-collapse button-in-line" id="navbarSupportedContent">
+                        <div class="div">
+                           <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="{% url 'main:index' %}">
+                                    <p>
+                                        НОВОСТИ
+                                    </p></a>
+                            </button> 
+                        </div>
+                        <div class="div">
+                           <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <p>
+                                        АФИША
+                                    </p>
+                                    
                                 </a>
+                            </button> 
+                        </div>
+                        
+                        <div class="div">
+                           <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Группа
+                                </a>
+                            </button> 
+                        </div>
+                        
+                        <div class="div">
+                            <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Релизы
+                                </a>
+                            </button>
+                        </div>
+                        
+                        <div class="div">
+                            <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Магазин
+                                </a>
+                            </button>
+                        </div>
+                        
+                        <div class="div">
+                            <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Галерея
+                                </a>
+                            </button>
+                        </div>
+                        
+                        <div class="div">
+                            <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Медиа
+                                </a>
+                            </button>
+                        </div>
+                        
+                        <div class="div">
+                            <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Пресса
+                                </a>
+                            </button>
+                        </div class="div">
+                        
+                        <div class="div">
+                           <button class="btn-group nav-button">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Контакты
+                                </a>
+                            </button> 
+                        </div>
+                        
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item text-white" href="{% url 'info:info' %}">Контактная информация</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item text-white" href="{% url 'main:about' %}">Про нас</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{% url 'user:users_cart' %}">Корзина</a>
-                            </li>
+
                             {% if not user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{% url 'user:login' %}">Войти</a>
-                            </li>
+                            <div class="div">
+                                <button class="btn-group nav-button">
+                                    <a class="nav-link text-white" href="{% url 'user:login' %}">Войти</a>
+                                </button>
+                            </div>
+                                
+                                
+
                             {% else %}
-                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Мой профиль
                                 </a>
@@ -76,14 +146,14 @@
                             {% endif %}
                             
                         </ul>
-                        <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
+                        <!-- <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
                             <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search"/>
                             <button class="btn btn-outline-success text-white" type="submit">
                                 Поиск
                             </button>
-                        </form>
+                        </form> -->
                     </div>
-                </div>
+                
             </nav>
         </header>
 
@@ -92,7 +162,7 @@
                 <!-- Меню и корзина с фиксированным расположением на странице -->
                 <div class="row mt-1 position-fixed z-3">
                     <!-- Меню -->
-                    <div class="dropdown mb-2">
+                    <!-- <div class="dropdown mb-2">
                         <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Меню
                             <img class="mx-1" src="{% static 'deps/icons/grid-fill.svg' %}" alt="Catalog Icon" width="16" height="16"/>
@@ -106,7 +176,7 @@
                             {% endfor %}
                             
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- Значек корзины, вызывает модальное окно -->
                     {% block modal_cart %}
                     {% endblock %}

@@ -1,10 +1,42 @@
 body {
-  background-image: url("../images/bg-image.jpg");
+  background-color: #2b292d;
+}
+
+.up_fon {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+
+}
+
+.div {
+  display: flex;
+  justify-content: center;
+  width: 5%;
+}
+
+.button-in-line {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+
+}
+
+button {
+  background-color: transparent;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  height: 100%;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 
 .dropdown-toggle::after {

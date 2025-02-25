@@ -2,9 +2,6 @@
 {% load static %} 
 
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock %}
 
 {%block css %}
 <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}" />
@@ -22,11 +19,4 @@
 {% endblock %} 
 
 {% block footer %}
-    <footer class="py-2 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">
-                <a href="https://github.com/Denis-create-boop">-- By Denis-create-boop --</a>
-            </p>
-        </div>
-    </footer>
 {% endblock %}

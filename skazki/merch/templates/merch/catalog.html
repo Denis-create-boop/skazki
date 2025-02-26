@@ -78,13 +78,6 @@
             </form>
         </div>
         
-        {% if request.GET.q %}
-            <h3 class="mt-4">Результаты поиска по запросу {{ request.GET.q }}</h3>
-        {% if not merch %}
-            <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
-            <h2 class="mt-4">По запросу ничего не найдено</h2>
-        {% endif %}
-        {% endif %}
         
         <!--карта товара-->
         {% for product in merch %}

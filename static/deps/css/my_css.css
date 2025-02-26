@@ -1,5 +1,19 @@
+
 body {
-  background-color: #2b292d;
+  background: linear-gradient(-45deg, #01171b, #01101a, #01152c, #021a1a);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  height: 100vh;
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h3 {
+  color: rgba(240, 255, 255, 0.789);
+  font-style: italic;
 }
 
 .up_fon {
@@ -13,20 +27,34 @@ body {
 .nav-button {
   display: flex;
   justify-content: center;
-  background-color: #000000;
+  background-color: #10182b;
+  width: 97%;
+  border-radius: 10%;
 
+}
+
+.nav-button:hover {
+  background-color: rgb(26, 22, 31);
+}
+
+.text-on-button {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  padding: 1cap;
 }
 
 .div {
   display: flex;
   justify-content: center;
-  width: 5%;
+  width: 8%;
 }
 
 .button-in-line {
   display: flex;
   margin: auto;
   justify-content: center;
+  padding-bottom: 1%;
 
 }
 
@@ -81,4 +109,50 @@ button {
   top: 80%;
   border-radius: 15px;
   font-size: 0.7rem;
+}
+
+aside {
+  float: right;
+  background: #10182b;
+  width: 20%;
+  padding: 2.5%;
+  padding-top: 1%;
+  margin-right: 10%;
+
+}
+
+
+aside img {
+  width: 90px;
+  float: left;
+}
+
+aside .logo {
+  font-size: 40px;
+  margin-left: 10px;
+  font-weight: bold;
+  position: relative;
+  top: -5px;
+
+}
+
+aside h3{
+  margin-top: 50px;
+  font-size: 28px;
+}
+
+aside ul {list-style: none}
+
+aside ul li  {
+  color: #fff;
+  display: block;
+  margin-top: 20px;
+  transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+  color: #dbf11b;
+  text-decoration: none;
+  transform: scale(1.08);
+
 }

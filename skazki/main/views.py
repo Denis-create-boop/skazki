@@ -1,13 +1,17 @@
 from django.shortcuts import render
+from main.models import News
+from django.core.paginator import Paginator
 
 
 def index(request):
 
+    news = News.objects.all()
     context = {
         "title": "Сказки черного города - Главная",
-        "content": "Кафе - Сказки черного города",
+        "news" : news,
     }
-    return render(request, "main/index.html", context)
+    return render(request, "main/index.html", context=context)
+
 
 
 def about(request):

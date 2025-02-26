@@ -7,6 +7,15 @@
 {% endblock %}
 
 {% block content %}
+    <div>
+        <p>контент</p>
+        {% for new in news %}
+            <p>{{ new.name }}</p>
+            <p>{{ new.description }}</p>
+            {{ new.image }}
+        {% endfor %}
+ 
+    </div>
 {% endblock %}
 
 {% block footer %}

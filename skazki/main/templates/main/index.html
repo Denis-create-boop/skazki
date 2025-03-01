@@ -7,12 +7,20 @@
 {% endblock %}
 
 {% block content %}
-    <div>
-        <p>контент</p>
+    <div class="news">
         {% for new in news %}
-            <p>{{ new.name }}</p>
-            <p>{{ new.description }}</p>
-            {{ new.image }}
+            <h3>{{ new.name }}</h3>
+            <p class="p_news">{{ new.description }}</p>
+            {% if new.image %}
+                <br>
+                <div class="modal-body image-in-news">
+                    <img src="{{ new.image.url }}"
+                        class="img-fluid" alt="Изображение 1" style="max-width: 60%; max-height: 40%;">
+                </div>
+            {% endif %}
+            <br>
+            
+            <hr style="color: bisque;">
         {% endfor %}
  
     </div>

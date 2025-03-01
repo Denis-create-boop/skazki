@@ -8,7 +8,7 @@ class News(models.Model):
     )
     description = models.TextField(blank=True, null=True, verbose_name="Описание")
     image = models.ImageField(
-        upload_to="merch_images", blank=True, null=True, verbose_name="Изображение"
+        upload_to="news_images", blank=True, null=True, verbose_name="Изображение"
     )
     
 
@@ -22,5 +22,5 @@ class News(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("main:index", kwargs={"product_slug": self.slug})
+        return reverse("main:index", kwargs={"news_slug": self.slug})
 

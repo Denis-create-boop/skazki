@@ -19,7 +19,7 @@
             </button>
 
             <form
-                action="{% if request.GET.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}"
+                action="{% if request.GET.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:news' slug_url %}{% endif %}"
                 method="get"
                 class="dropdown-menu bg-dark"
                 data-bs-theme="dark">

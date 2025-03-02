@@ -33,7 +33,7 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'main:index' %}">
+                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'main:news' %}">
                                         <p class="text-on-button">
                                             НОВОСТИ
                                         </p>
@@ -184,19 +184,10 @@
  
                         {% endif %}
                     </div>
-                
             </nav>
         </header>
-        
-        <aside>
-            <ul>
-                <li>
-                    <p>чтото будет</p>
-                </li>
-                
-            </ul>
-        </aside>
-        
+        {% block asside %}
+        {% endblock %}
         <main>
         <section>
             <div class="container">
@@ -209,14 +200,13 @@
                 </div>
             </div>
             <!-- Контент -->
-            <div>
-                <div class="content">
-                    <!-- Контент на странице -->
-                        {% include 'includes/notifications.html' %}
-                        {% block content %}{% endblock %}
-                    </div>
-                    {% block pagination %}{% endblock %}
+            <div class="content">
+                {% block news %}{% endblock %}
+                <!-- Контент на странице -->
+                    {% include 'includes/notifications.html' %}
+                    {% block content %}{% endblock %}
             </div>
+            {% block pagination %}{% endblock %}
         </section>
         {% block footer %}
             

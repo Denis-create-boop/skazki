@@ -33,7 +33,7 @@ def login(request):
                 if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.POST.get("next"))
 
-                return HttpResponseRedirect(reverse("main:index"))
+                return HttpResponseRedirect(reverse("main:news"))
     else:
         form = UserLoginForm()
 
@@ -56,7 +56,7 @@ def registration(request):
                 Cart.objects.filter(session_key=session_key).update(user=user)
 
             messages.success(request, f"{user.username}, Вы успешно зарегестрировались")
-            return HttpResponseRedirect(reverse("main:index"))
+            return HttpResponseRedirect(reverse("main:news"))
     else:
         form = UserRegistrationForm()
 
@@ -99,6 +99,6 @@ def logout(request):
     messages.success(request, f"{request.user.username}, Вы вышли из аккаунта")
     auth.logout(request)
 
-    return redirect(reverse("main:index"))
+    return redirect(reverse("main:news"))
 
 

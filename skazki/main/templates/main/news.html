@@ -6,10 +6,31 @@
     <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}"/>
 {% endblock %}
 
+{% block asside %}
+    <aside>
+        {% for concert in concerts %}
+            {{ concert.name }}
+            {{ concert.description }}
+            {{ concert.date }}
+            {{ concert.time }}
+        {% endfor %}
+    </aside>
+{% endblock %}
+
+
+
+{% block news %}
+    <h5 style="color: rgba(179, 78, 6, 0.885); padding-left: 1%; padding-top: 0.5%;">Свежие новости:</h5>
+    <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
+{% endblock %}
+
 {% block content %}
     <div class="news">
         {% for new in news %}
-            <h3>{{ new.name }}</h3>
+        <div class="h-5">
+            <h5>{{ new.name }}</h5>
+        </div>
+        <br>
             <p class="p_news">{{ new.description }}</p>
             {% if new.image %}
                 <br>
@@ -19,12 +40,7 @@
                 </div>
             {% endif %}
             <br>
-            
             <hr style="color: bisque;">
         {% endfor %}
- 
     </div>
-{% endblock %}
-
-{% block footer %}
 {% endblock %}

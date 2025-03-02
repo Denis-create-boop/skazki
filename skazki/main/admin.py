@@ -1,5 +1,5 @@
 from django.contrib import admin
-from main.models import News
+from main.models import News, Concerts
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
@@ -14,4 +14,17 @@ class NewsAdmin(admin.ModelAdmin):
         "slug",
         "description",
         "image"
+    ]
+    
+    
+@admin.register(Concerts)
+class CorcertsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+    search_fields = ["name", "description", "date",]
+
+    fields = [
+        "name",
+        "slug",
+        "description",
+        "date",
     ]

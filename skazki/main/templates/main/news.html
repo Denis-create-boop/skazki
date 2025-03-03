@@ -9,10 +9,10 @@
 {% block asside %}
     <aside>
         {% csrf_token %}
-        <h6 style="color: rgba(179, 78, 6, 0.885); padding-left: 1%;">Ближайшие концерты:</h6>
+        <h6 style="color: rgba(179, 78, 6, 0.885); padding-left: 2%;">Ближайшие концерты:</h6>
         <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;;">
         {% for concert in concerts %}
-        <hr style="border: none; border-top: 1px dotted bisque; width: 90%; margin: auto; margin-bottom: 2%;" />
+        {% comment %} <hr style="border: none; border-top: 1px dotted bisque; width: 90%; margin: auto; margin-bottom: 2%;" /> {% endcomment %}
         <div style="display: inline-block; margin-left: 5%; width: 25%; background-color: aliceblue;">
             <p style="text-align: center; background-color: rgb(192, 64, 5);">{{ concert.get_month }}</p>
             <h4 style="text-align: center; padding-bottom: 3%;">{{ concert.date.day }}</h4>
@@ -22,7 +22,7 @@
             <br>
             {{ concert.place }}
             <br>
-            <a href="#">подробнее</a>
+            <a class="details" href="{% url 'main:details' concert.slug %}">подробнее...</a>
         </div>
             
         <hr style="border: none; border-top: 1px dotted bisque; width: 90%; margin: auto; margin-top: 2%; margin-bottom: 2%;" />
@@ -49,7 +49,7 @@
                 <br>
                 <div class="modal-body image-in-news">
                     <img src="{{ new.image.url }}"
-                        class="img-fluid" alt="Изображение 1" style="max-width: 60%; max-height: 40%;">
+                        class="img-fluid" alt="Изображение 1" style="max-width: 65%; max-height: 35%;">
                 </div>
             {% endif %}
             <br>

@@ -35,6 +35,10 @@ class Concerts(models.Model):
     )
     description = models.TextField(blank=True, null=True, verbose_name="Описание")
     place = models.CharField(max_length=250, verbose_name="Место проведения")
+    image = models.ImageField(
+        upload_to="concerts_images", blank=True, null=True, verbose_name="Изображение"
+    )
+    tickets = models.CharField(max_length=150, blank=True, null=True, verbose_name="Билеты")
     
     
     class Meta:
@@ -67,3 +71,16 @@ class Concerts(models.Model):
         }
         
         return months[self.date.month]
+    
+    def get_weekday(self):
+        days = {
+            0: "Понедельник",
+            1: "Вторник",
+            2: "Среда",
+            3: "Четверг",
+            4: "Пятница",
+            5: "Суббота",
+            6: "Воскресенье",
+        }
+        
+        return days[self.date.weekday()]

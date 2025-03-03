@@ -26,3 +26,23 @@ def about(request):
     return render(request, "main/about.html", context)
 
 
+def details(request, concert_slug):
+    concert = Concerts.objects.get(slug=concert_slug)
+    concerts = Concerts.objects.all()
+    context = {
+        "title": "Подробнее о концерте",
+        "concert": concert,
+        "concerts": concerts,
+        "flug": True,
+    }
+    return render(request, "main/details.html", context=context)
+
+
+def afisha(request):
+    concerts = Concerts.objects.all()
+    context = {
+        "title": "Сказки черного города - Афиша",
+        "concerts": concerts,
+        "flug" : False,
+    }
+    return render(request, "main/details.html", context=context)

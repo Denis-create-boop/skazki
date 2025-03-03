@@ -28,4 +28,6 @@ class CorcertsAdmin(admin.ModelAdmin):
         "description",
         "place",
         "date",
+        "image",
+        "tickets",
     ]

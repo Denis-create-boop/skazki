@@ -160,3 +160,29 @@ aside img {
   font-style: italic;
 }
 
+.details {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: rgb(243, 245, 133);
+}
+
+
+.details1 {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: rgb(243, 245, 133);
+}
+
+.details:hover {
+  color: rgb(240, 146, 146);
+  transform: scale(1.2);
+}
+
+.details1:hover {
+  color: rgb(240, 146, 146);
+  transform: scale(1.2);
+}

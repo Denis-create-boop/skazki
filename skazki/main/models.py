@@ -34,6 +34,7 @@ class Concerts(models.Model):
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )
     description = models.TextField(blank=True, null=True, verbose_name="Описание")
+    place = models.CharField(max_length=250, verbose_name="Место проведения")
     
     
     class Meta:
@@ -47,3 +48,22 @@ class Concerts(models.Model):
 
     def get_absolute_url(self):
         return reverse("main:concerts", kwargs={"concerts_slug": self.slug})
+    
+    def get_month(self):
+        months = {
+            1: "Январь",
+            2: "Февраль",
+            3: "Март",
+            4: "Апрель",
+            5: "Май",
+            6: "Июнь",
+            7: "Июль",
+            8: "Август",
+            9: "Сентябрь",
+            10: "Октябрь",
+            11: "Ноябрь",
+            12: "Декабрь",
+            
+        }
+        
+        return months[self.date.month]

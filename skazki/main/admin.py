@@ -20,11 +20,12 @@ class NewsAdmin(admin.ModelAdmin):
 @admin.register(Concerts)
 class CorcertsAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
-    search_fields = ["name", "description", "date",]
+    search_fields = ["name", "description", "date", "place"]
 
     fields = [
         "name",
         "slug",
         "description",
+        "place",
         "date",
     ]

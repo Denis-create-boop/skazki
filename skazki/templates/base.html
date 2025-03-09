@@ -72,7 +72,7 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="#">
+                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'songs:songs' %}">
                                         <p class="text-on-button">
                                             РЕЛИЗЫ
                                         </p>
@@ -186,8 +186,30 @@
                     </div>
             </nav>
         </header>
-        {% block asside %}
-        {% endblock %}
+        
+        <aside>
+            {% csrf_token %}
+            <h6 style="color: rgba(179, 78, 6, 0.885); padding-left: 2%;">Ближайшие концерты:</h6>
+            <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;;">
+            {% for concert in concerts %}
+            
+            <div style="display: inline-block; margin-left: 5%; width: 25%; background-color: aliceblue;">
+                <p style="text-align: center; background-color: rgb(192, 64, 5);">{{ concert.get_month }}</p>
+                <h4 style="text-align: center; padding-bottom: 3%;">{{ concert.date.day }}</h4>
+            </div>
+            <div style="float: right; display: inline-block; margin-right: 5%; width: 60%; color: aliceblue;">
+                {{ concert.name }}
+                <br>
+                {{ concert.place }}
+                <br>
+                <a class="details" href="{% url 'main:details' concert.slug %}">подробнее...</a>
+            </div>
+                
+            <hr style="border: none; border-top: 1px dotted bisque; width: 90%; margin: auto; margin-top: 2%; margin-bottom: 2%;" />
+            {% endfor %}
+        </aside>
+
+
         <main>
         <section>
             <div class="container">

@@ -8,10 +8,35 @@
 {% endblock %} 
 
 {% block content %}
-    <div class="mt-3 pt-4 bg-white custom-shadow rounded">
-        <h2 class="m-2"><strong>{{ content }}</strong></h2>
-        
-    </di>
+    <div>
+        <h6 style="color: rgba(179, 78, 6, 0.885); padding-left: 2%;">Информация о группе "Сказки черного города"</h6>
+        <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
+    </div>
+    <div style="margin-left: 2%; color: aliceblue;">
+        {% for element in info %}
+            <div style="display: block; color: rgb(165, 218, 196);">
+                {{ element.date }}
+            </div>
+            <br>
+            {% if element.image %}
+                <div style="display: inline-block; width: 50%;">
+                    {{ element.description }}
+                </div>
+                <div style="display: inline-block; width: 48%;">
+                    <img src="{{ element.image.url }}"
+                        class="img-fluid" alt="Изображение 1">
+                </div>
+                <br>
+                
+            {% else %}
+                {{ element.description }}
+                
+            {% endif %}
+            <br>
+            <hr>
+        {% endfor %}
+    </div>
+    
 {% endblock %} 
 
 {% block footer %}

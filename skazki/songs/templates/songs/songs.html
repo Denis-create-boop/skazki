@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+
+{%block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}" />
+{% endblock %} 
+
+
+{% block content %}
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 98%; margin-left: 2%;">
+        {% for song in songs %}
+        <div style="display: flex; margin: auto; flex-basis: 32%; justify-content: center; margin-bottom: 2%; margin-top: 2%;">  
+            <div>
+                <img src="{{ song.image.url }}" alt="img" width="90%%" height="90%">
+                <a href="{% url 'songs:detail_song' song.slug %}" style="display: flex; justify-content: center; color: rgb(235, 229, 229); text-decoration: none; margin-top: 1%;">{{ song.name }}</a>   
+            </div>
+        </div>
+        {% endfor %}  
+    </div>
+    
+    
+{% endblock %}

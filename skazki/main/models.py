@@ -1,10 +1,9 @@
 from django.db import models
 from django.urls import reverse
-from datetime import datetime
 
 class News(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Заголовок")
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     slug = models.SlugField(
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )
@@ -84,3 +83,28 @@ class Concerts(models.Model):
         }
         
         return days[self.date.weekday()]
+    
+    
+class Info(models.Model):
+    name = models.CharField(max_length=150, unique=True, verbose_name="Заголовок")
+    date = models.DateField()
+    slug = models.SlugField(
+        max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
+    )
+    description = models.TextField(blank=True, null=True, verbose_name="Описание")
+    image = models.ImageField(
+        upload_to="info_images", blank=True, null=True, verbose_name="Изображение"
+    )
+    
+    
+    class Meta:
+        db_table = "info_about_group"
+        verbose_name = "событие"
+        verbose_name_plural = "события"
+        ordering = ("date",)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("main:about", kwargs={"info_slug": self.slug})

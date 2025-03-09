@@ -28,7 +28,7 @@ def catalog(request, category_slug=None):
     current_page = paginator.page(int(page))
 
     context = {
-        "title": "Little Italy - Каталог",
+        "title": "Сказки Черного города - Каталог",
         "merch": current_page,
         "slug_url": category_slug,
     }

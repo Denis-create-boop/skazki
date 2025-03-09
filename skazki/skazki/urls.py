@@ -14,6 +14,7 @@ urlpatterns = [
     path("cart/", include("carts.urls", namespace="cart")),
     path("orders/", include("orders.urls", namespace="orders")),
     path("info/", include("info.urls", namespace="info")),
+    path("songs/", include("songs.urls", namespace="songs")),
 ]
 
 if settings.DEBUG:

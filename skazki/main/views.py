@@ -8,7 +8,7 @@ def news(request):
     news = News.objects.all()
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного города - Новости",
+        "title": "Сказки Черного Города - Новости",
         "news" : news,
         "concerts": concerts,
     }
@@ -21,7 +21,7 @@ def about(request):
     concerts = Concerts.objects.all()
     info = Info.objects.all()
     context = {
-        "title": "Сказки Черного города - О нас",
+        "title": "Сказки Черного Города - О нас",
         "content": "О нас",
         "concerts": concerts,
         "info": info,
@@ -34,7 +34,7 @@ def details(request, concert_slug):
     concert = Concerts.objects.get(slug=concert_slug)
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного города - Подробнее о концерте",
+        "title": "Сказки Черного Города - Подробнее о концерте",
         "concert": concert,
         "concerts": concerts,
         "flug": True,
@@ -45,7 +45,7 @@ def details(request, concert_slug):
 def afisha(request):
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного города - Афиша",
+        "title": "Сказки Черного Города - Афиша",
         "concerts": concerts,
         "flug" : False,
     }

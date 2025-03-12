@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from merch.models import Categories, Products
+from merch_shop.models import Categories, Products
 
 # admin.site.register(Categories)
 #admin.site.register(Products)
@@ -36,3 +36,5 @@ class ProductsAdmin(admin.ModelAdmin):
         "quantity",
         "image"
     ]
+
+

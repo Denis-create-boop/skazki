@@ -1,5 +1,5 @@
 from django.db import models
-from merch.models import Products
+from merch_shop.models import Products
 
 from users.models import User
 

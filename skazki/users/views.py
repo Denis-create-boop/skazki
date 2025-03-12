@@ -37,7 +37,7 @@ def login(request):
     else:
         form = UserLoginForm()
 
-    context = {"title": "Little Italy - Авторизация", "form": form}
+    context = {"title": "Сказки Черного Города - Авторизация", "form": form}
     return render(request, "users/login.html", context)
 
 
@@ -60,7 +60,7 @@ def registration(request):
     else:
         form = UserRegistrationForm()
 
-    context = {"title": "Little Italy - Регистрация", "form": form}
+    context = {"title": "Сказки Черного Города - Регистрация", "form": form}
     return render(request, "users/registration.html", context)
 
 
@@ -86,7 +86,7 @@ def profile(request):
         ).order_by("-id")
     )
 
-    context = {"title": "Little Italy - Кабинет", "form": form, "orders": orders}
+    context = {"title": "Сказки Черного Города - Кабинет", "form": form, "orders": orders}
     return render(request, "users/profile.html", context)
 
 def users_cart(request):

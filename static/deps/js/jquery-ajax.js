@@ -9,8 +9,8 @@ $(document).ready(function () {
     e.preventDefault();
 
     // Берем элемент счетчика в значке корзины и берем оттуда значение
-    var merchInCartCount = $("#merch-in-cart-count");
-    var cartCount = parseInt(merchInCartCount.text() || 0);
+    var merch_shopInCartCount = $("#merch_shop-in-cart-count");
+    var cartCount = parseInt(merch_shopInCartCount.text() || 0);
 
     // Получаем id товара из атрибута data-product-id
     var product_id = $(this).data("product-id");
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         // Увеличиваем количество товаров в корзине (отрисовка в шаблоне)
         cartCount++;
-        merchInCartCount.text(cartCount);
+        merch_shopInCartCount.text(cartCount);
 
         // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
         var cartItemsContainer = $("#cart-items-container");
@@ -58,8 +58,8 @@ $(document).ready(function () {
     e.preventDefault();
 
     // Берем элемент счетчика в значке корзины и берем оттуда значение
-    var merchInCartCount = $("#merch-in-cart-count");
-    var cartCount = parseInt(merchInCartCount.text() || 0);
+    var merch_shopInCartCount = $("#merch_shop-in-cart-count");
+    var cartCount = parseInt(merch_shopInCartCount.text() || 0);
 
     // Получаем id корзины из атрибута data-cart-id
     var cart_id = $(this).data("cart-id");
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
         // Уменьшаем количество товаров в корзине (отрисовка)
         cartCount -= data.quantity_deleted;
-        merchInCartCount.text(cartCount);
+        merch_shopInCartCount.text(cartCount);
 
         // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
         var cartItemsContainer = $("#cart-items-container");
@@ -164,10 +164,10 @@ $(document).ready(function () {
         }, 5000);
 
         // Изменяем количество товаров в корзине
-        var merchInCartCount = $("#merch-in-cart-count");
-        var cartCount = parseInt(merchInCartCount.text() || 0);
+        var merch_shopInCartCount = $("#merch_shop-in-cart-count");
+        var cartCount = parseInt(merch_shopInCartCount.text() || 0);
         cartCount += change;
-        merchInCartCount.text(cartCount);
+        merch_shopInCartCount.text(cartCount);
 
         // Меняем содержимое корзины
         var cartItemsContainer = $("#cart-items-container");

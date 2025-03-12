@@ -1,7 +1,7 @@
 from django import template
 from django.utils.http import urlencode
 
-from merch.models import Categories
+from merch_shop.models import Categories
 
 
 register = template.Library()

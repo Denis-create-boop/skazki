@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class News(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Заголовок")
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )

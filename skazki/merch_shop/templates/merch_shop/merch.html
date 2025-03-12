@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load merch_shop_tags %}
+
+
+
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+    {% for category in categories %}
+    
+    {% endfor %}
+
+         <!-- Меню -->
+        <!-- <div style="display: block; margin-left: 2%; margin-top: 2%;">
+            <div class="dropdown mb-2">
+                <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Меню
+                    <img class="mx-1" src="{% static 'deps/icons/grid-fill.svg' %}" alt="Catalog Icon" width="16" height="16"/>
+                </button>
+                <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    {% tag_categories as categories %}
+                    {% for category in categories %}
+                        <li>
+                            <a class="dropdown-item text-white" href="{% url 'merch_shop:products' category.slug %}">{{ category.name }}</a>  
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>   
+        </div>   
+          -->
+        <!--карта товара-->
+        {% for product in merch_shop %}
+            <div class="col-lg-4 col-md-6 p-4">
+                <div class="card border-primary rounded custom-shadow">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}"/>
+                    {% else %}
+                        <img src="{% static 'deps/images/Not found image.png' %}" alt="" />
+                    {% endif %}
+
+                    <div class="card-body">
+                        <a href="{% url 'merch_shop:product' product.slug %}">
+                            <p class="card-title">
+                                {% autoescape off %}
+                                
+                                    {% if product.headline %}
+                                        {{product.headline}}
+                                    {% else %}
+                                        {{ product.name }}
+                                    {% endif %}
+                                {% endautoescape %}
+                            </p>
+                        </a>
+                            <p class="card-text text-truncate">
+                                {% autoescape off %}
+                                    {% if product.bodyline %}
+                                        {{ product.boadyline|truncatechars:100 }}
+                                    {% else %}
+                                        {{ product.description|truncatechars:25 }}
+                                    {% endif %}
+                                {% endautoescape %}
+                                
+                            </p>
+                            <p class="product_id">id: {{ product.display_id }}</p>
+                            <div class="d-flex justify-content-between">
+                            <!--есть ли скидка на товар-->
+                            {% if product.discount %}
+                                <p><s>{{ product.price }}</s> руб.</p>
+                                <p><strong>{{ product.sell_price }}</strong></p>
+                                <span class="badge bg-warning text-dark">{{ product.discount }}</span>
+                            {% else %}
+                                <p><strong>{{ product.price }}</strong></p>
+                            {% endif %}
+                            
+                            <a href="{% url 'cart:cart_add' %}" class="btn add-to-cart"
+                            data-product-id="{{ product.id }}">
+                                {% csrf_token %}
+                                <img
+                                    class="mx-1"
+                                    src="{% static 'deps/icons/cart-plus.svg' %}"
+                                    alt="Catalog Icon"
+                                    width="32"
+                                    height="32"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block pagination %}
+    <!-- Пагинация -->
+    {% if merch_shop %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center my-4">
+            <div class="custom-shadow d-flex">
+                <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">
+                    <a class="page-link" 
+                        href="{% if merch_shop.has_previous %}?{% change_params page=merch_shop.previous_page_number %}{% else %}#{% endif %}">Назад</a>
+                </li>
+
+                {% for page in merch_shop.paginator.page_range %} 
+                    {% if page >= merch_shop.number|add:-2 and page <= merch_shop.number|add:2 %}
+                        <li class="page-item {% if merch_shop.number == page %} active {% endif %}">
+                            <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                        </li>
+                    {% endif %} 
+                {% endfor %}
+            
+                <li class="page-item {% if not merch_shop.has_next %}disabled{% endif %}">
+                    <a
+                        class="page-link"
+                        href="{% if merch_shop.has_next %}?{% change_params page=merch_shop.next_page_number %}{% else %}#{% endif %}">Следующая</a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+    {% endif %}
+{% endblock %} 

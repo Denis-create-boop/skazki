@@ -7,12 +7,17 @@ class SongsAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "date",
+        "date_realeese",
+        "album_list",
     ]
-    search_fields = ["name", "description", "date",]
+    search_fields = ["name", "description", "date", "date_realeese",]
 
     fields = [
         "name",
         "slug",
         "description",
-        "image"
+        "image",
+        "date_realeese",
+        "about_song",
+        "album_list",
     ]

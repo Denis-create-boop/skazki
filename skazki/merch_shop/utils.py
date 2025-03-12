@@ -6,7 +6,7 @@ from django.contrib.postgres.search import (
     SearchHeadline,
 )
 
-from merch.models import Products
+from merch_shop.models import Products
 
 
 def q_search(query):

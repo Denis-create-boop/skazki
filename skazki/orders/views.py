@@ -64,7 +64,7 @@ def create_order(request):
         }
         form = CreateOrderForm(initial=initial)
     context = {
-        "title": "Сказки Черного города - Оформление заказа",
+        "title": "Сказки Черного Города - Оформление заказа",
         "form": form,
         "order": True,
     }

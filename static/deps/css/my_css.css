@@ -13,22 +13,32 @@ body {
 
 h3 {
   color: rgba(240, 255, 255, 0.789);
-  font-style: italic;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: 400;
+  font-size:xx-large;
 }
 
 .up_fon {
-  padding-top: 1%;
   padding-bottom: 1%;
   display: flex;
   margin: auto;
   justify-content: center;
+  height: 55%;
 }
 
+.up_fon_header {
+  padding-top: 1%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
 .nav-button {
   display: flex;
   justify-content: center;
   background-color: #10182b;
-  width: 97%;
+  width: 96%;
   border-radius: 10%;
 
 }
@@ -52,7 +62,7 @@ h3 {
 .div {
   display: flex;
   justify-content: center;
-  width: 8%;
+  width: 8.1%;
 }
 
 .button-in-line {
@@ -186,3 +196,27 @@ aside img {
   color: rgb(240, 146, 146);
   transform: scale(1.2);
 }
+
+
+.a_song {
+  display: flex;
+  justify-content: center;
+  color: rgb(212, 195, 195);
+  text-decoration: none;
+  margin-top: 1%;
+}
+
+.a_song:hover {
+  color:#8c4f08;
+  transform: scale(1.2);
+}
+
+.cart_songs {
+  display: flex; 
+  margin: auto; 
+  flex-basis: 32%; 
+  justify-content: center; 
+  margin-bottom: 2%; 
+  margin-top: 2%;
+}
+

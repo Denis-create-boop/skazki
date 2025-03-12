@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
-    'merch',
     'users',
     'carts',
     'orders',
     'info',
     'songs',
+    'merch_shop',
 ]
 
 MIDDLEWARE = [

@@ -6,13 +6,22 @@ from merch_shop.utils import q_search
 
 
 def merch_shop(request):
+    page = request.GET.get("page", 1)
+    merch_shop = get_list_or_404(Categories.objects.all())
+
+
+        
     categories = Categories.objects.all()
+    paginator = Paginator(merch_shop, 9)
+    current_page = paginator.page(int(page))
+    
     context = {
         "title": "Сказки Черного Города - Каталог",
         "categories": categories,
+        "merch_shop": current_page,
 
     }
-    return render(request, 'merch_shop/merch.html', context=context)
+    return render(request, 'merch_shop/merch_categories.html', context=context)
 
 
 def products(request, category_slug):
@@ -29,12 +38,7 @@ def products(request, category_slug):
 
     if on_sale:
         merch_shop = Products.objects.filter(category__slug=category_slug)
-        
-
         merch_shop = merch_shop.filter(discount__gt=0)
-    if order_by and order_by != "default":
-        merch_shop = Products.objects.filter(category__slug=category_slug)
-        merch_shop = merch_shop.order_by(order_by)
 
     paginator = Paginator(merch_shop, 3)
     current_page = paginator.page(int(page))

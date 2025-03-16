@@ -226,10 +226,11 @@
                             {% endblock %}
                             <!-- Закончилась разметка модального окна -->
                         </div>
-                    </div>    
+                    </div>
+                    {% block pagination %}{% endblock %} 
                 </div>
            
-            {% block pagination %}{% endblock %}
+            
         </section>
         {% block footer %}
         {% endblock %}

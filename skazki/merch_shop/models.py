@@ -30,7 +30,7 @@ class Products(models.Model):
     )
     description = models.TextField(blank=True, null=True, verbose_name="Описание")
     image = models.ImageField(
-        upload_to="merch_product_images", blank=True, null=True, verbose_name="Изображение"
+        upload_to="merch_products_images", blank=True, null=True, verbose_name="Изображение"
     )
     price = models.DecimalField(
         default=0.00, max_digits=7, decimal_places=2, verbose_name="Цена"
@@ -38,7 +38,7 @@ class Products(models.Model):
     discount = models.DecimalField(
         default=0.00, max_digits=4, decimal_places=2, verbose_name="Скидка в %"
     )
-    quantity = models.PositiveIntegerField(default=0, verbose_name="Количество")
+    quantity = models.PositiveIntegerField(default=100, verbose_name="Количество")
     category = models.ForeignKey(
         to=Categories, on_delete=models.PROTECT, verbose_name="Категория"
     )
@@ -53,7 +53,7 @@ class Products(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("merch_shop:merch_shop", kwargs={"product_slug": self.slug})
+        return reverse("merch_shop:get_products", kwargs={"product_slug": self.slug})
 
     def display_id(self):
         return f"{self.id:05}"

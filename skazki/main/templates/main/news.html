@@ -27,6 +27,14 @@
                         class="img-fluid" alt="Изображение 1" style="max-width: 65%; max-height: 35%;">
                 </div>
             {% endif %}
+            {% if new.videofile %}
+                <br>
+                <div class="modal-body image-in-news">
+                    <video style="max-width: 65%; max-height: 35%;" controls>
+                        <source src="{{ new.videofile.url }}" type="video/mp4">
+                   </video>
+                </div>
+            {% endif %}
             <br>
             <hr style="color: bisque;">
         {% endfor %}

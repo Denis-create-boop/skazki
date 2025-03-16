@@ -34,7 +34,7 @@ class ProductsAdmin(admin.ModelAdmin):
         "description",
         ("price", "discount"),
         "quantity",
-        "image"
+        "image",
     ]
 
 

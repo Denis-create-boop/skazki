@@ -32,6 +32,14 @@
                 {{ element.description }}
                 
             {% endif %}
+            {% if element.videofile %}
+                <br>
+                <div class="modal-body image-in-news">
+                    <video style="max-width: 65%; max-height: 35%;" controls>
+                        <source src="{{ element.videofile.url }}" type="video/mp4">
+                   </video>
+                </div>
+            {% endif %}
             <br>
             <hr>
         {% endfor %}

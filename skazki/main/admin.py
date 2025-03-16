@@ -13,7 +13,8 @@ class NewsAdmin(admin.ModelAdmin):
         "name",
         "slug",
         "description",
-        "image"
+        "image",
+        "videofile",
     ]
     
     
@@ -28,6 +29,7 @@ class InfoAdmin(admin.ModelAdmin):
         "description",
         "date",
         "image",
+        "videofile",
     ]
 
 

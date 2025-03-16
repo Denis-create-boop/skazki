@@ -12,8 +12,8 @@
 {% block content %}
 
     <div class="row">
-    
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 90%; margin-left: 5%;">
+    {% if categories %}
     {% for category in categories %}
         <div class="cart_songs">  
             <div>
@@ -22,11 +22,15 @@
                 {% else %}
                     <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="100%" height="90%">
                 {% endif %}
-                <a class="a_song" href="{% url 'merch_shop:products' category.slug %}">{{ category.name }}</a>   
-
+                {% csrf_token %}
+                <a class="a_song" href="{% url 'merch_shop:get_products' category.slug %}">{{ category.name }}</a>   
+                
             </div>
         </div>
-        {% endfor %}  
+        {% endfor %}
+    {% else %}
+        <h3 style="display: flex; margin: auto; margin-top: 2%; justify-content: center; color: aliceblue;">Магазин пока пуст</h3>
+    {% endif %}
     </div>
     <hr style="color: rgb(7, 40, 40); margin-bottom: 3%;">
     </div>
@@ -91,13 +95,13 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
-{% endblock %} --> -->
+    </div> -->
+{% endblock %}
 
 {% block pagination %}
     <!-- Пагинация -->
     {% if merch_shop %}
-    <nav class="content">
+    <nav>
         <ul class="pagination justify-content-center my-4">
             <div class="custom-shadow d-flex">
                 <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">

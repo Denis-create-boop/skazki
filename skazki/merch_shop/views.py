@@ -7,9 +7,7 @@ from merch_shop.utils import q_search
 
 def merch_shop(request):
     page = request.GET.get("page", 1)
-    merch_shop = get_list_or_404(Categories.objects.all())
-
-
+    merch_shop = Categories.objects.all()
         
     categories = Categories.objects.all()
     paginator = Paginator(merch_shop, 9)
@@ -24,29 +22,24 @@ def merch_shop(request):
     return render(request, 'merch_shop/merch_categories.html', context=context)
 
 
-def products(request, category_slug):
+def get_products(request, category_slug):
     
     page = request.GET.get("page", 1)
     on_sale = request.GET.get("on_sale", None)
-    order_by = request.GET.get("order_by", None)
-    query = request.GET.get('q', None)
-
-    if query:
-        merch_shop = q_search(query)
-    else:
-        merch_shop = get_list_or_404(Products.objects.filter(category__slug=category_slug))
+    merch_shop = Products.objects.filter(category__slug=category_slug)
 
     if on_sale:
         merch_shop = Products.objects.filter(category__slug=category_slug)
-        merch_shop = merch_shop.filter(discount__gt=0)
+        merch_shop = merch_shop.filter(discount_gt=0)
 
     paginator = Paginator(merch_shop, 3)
     current_page = paginator.page(int(page))
 
     context = {
-        "title": "Сказки Черного Города - Каталог",
-        "merch_shop": current_page,
+        "title": "Сказки Черного Города - " + category_slug,
+        "products": current_page,
         "slug_url": category_slug,
+        
     }
     return render(request, 'merch_shop/merch.html', context=context)
 

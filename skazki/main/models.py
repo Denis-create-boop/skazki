@@ -11,6 +11,7 @@ class News(models.Model):
     image = models.ImageField(
         upload_to="news_images", blank=True, null=True, verbose_name="Изображение"
     )
+    videofile = models.FileField(upload_to='news_videos', null=True, verbose_name="Видео")
     
 
     class Meta:
@@ -95,6 +96,7 @@ class Info(models.Model):
     image = models.ImageField(
         upload_to="info_images", blank=True, null=True, verbose_name="Изображение"
     )
+    videofile = models.FileField(upload_to='info_videos', null=True, verbose_name="Видео")
     
     
     class Meta:

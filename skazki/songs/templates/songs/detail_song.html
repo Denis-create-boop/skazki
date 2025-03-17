@@ -15,33 +15,56 @@
 
 {% block content %}
     <div style="display: flex; align-items: center; justify-content: space-between;">
-       {% if song.image.url %}
+       {% if song.image %}
             <div style="width: 40%; margin-left: 5%;">
                 <img src="{{ song.image.url }}" alt="img" width="90%" height="100%">  
             </div>
         {% else %}
-            <img src="{% static 'deps/images/Not found image.png' %}" alt="">
+            <div style="width: 40%; margin-left: 5%;">
+                <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="90%" height="100%">
+            </div>
         {% endif %}
             <div style="width: 50%;">
-                {{ song.album_list|linebreaksbr }}
+                <h4 style="color: rgb(46, 240, 205);">Песни в альбоме:</h4>
+                {% for el in song.get_song %}
+                    {% if el.1 == song.name %}
+                    <div style="color:rgb(235, 222, 105)">
+                        {{ el.0 }} - {{ el.1 }}
+                    </div>
+                        
+                    {% else %}
+                        <div style="color:aliceblue">
+                            {{ el.0 }} - {{ el.1 }}
+                        </div>
+                        
+                {% endif %}
+        {% endfor %}
             </div> 
     </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
-        <p>Выпущена: {{ song.date_realeese }}</p>
+        <p style="color: aliceblue;">Выпущена: {{ song.date_realeese }}</p>
     </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
-        <h4 style="color: beige; text-align: center;">Описание песни</h4>
-        <p>{{ song.description }}</p>
+        <h4 style="color: rgb(46, 240, 205); text-align: center;">Описание песни</h4>
+        <p style="color: aliceblue;">{{ song.description|linebreaksbr }}</p>
     </div>
-    {% if song.image.url %}
-        <div  style="display: block; margin-left: 5%; margin-top: 2%;">
-            <h4 style="color: beige; text-align: center; padding-bottom: 2%;">Обложка</h4>
+    {% if song.image %}
+        <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Обложка</h4>
+        <div  style="display: flex; margin:auto; justify-content: center; margin-top: 2%;"> 
             <img src="{{ song.image.url }}" alt="" width="70%">
         </div>
     {% endif %}
+    {% if song.videofile %}
+        <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Клип</h4>
+        <div class="modal-body image-in-news">
+            <video style="max-width: 65%; max-height: 35%;" controls>
+                <source src="{{ song.videofile.url }}" type="video/mp4">
+            </video>
+        </div>
+    {% endif %}
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
-        <h4 style="color: beige; text-align: center; padding-bottom: 2%;">Текст песни</h4>
-        <p>{{ song.name }}</p>
+        <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Текст песни</h4>
+        <p style="color: aliceblue;">{{ song.about_song|linebreaksbr }}</p>
     </div>
     
     <br><br>

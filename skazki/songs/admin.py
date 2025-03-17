@@ -20,4 +20,5 @@ class SongsAdmin(admin.ModelAdmin):
         "date_realeese",
         "about_song",
         "album_list",
+        "videofile",
     ]

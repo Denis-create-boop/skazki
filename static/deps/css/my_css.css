@@ -214,7 +214,7 @@ aside img {
 .cart_songs {
   display: flex; 
   margin: auto; 
-  flex-basis: 32%; 
+  flex-basis: 25%; 
   justify-content: center; 
   margin-bottom: 2%; 
   margin-top: 2%;

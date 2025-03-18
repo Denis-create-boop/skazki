@@ -11,7 +11,7 @@ class News(models.Model):
     image = models.ImageField(
         upload_to="news_images", blank=True, null=True, verbose_name="Изображение"
     )
-    videofile = models.FileField(upload_to='news_videos', null=True, verbose_name="Видео")
+    videofile = models.FileField(upload_to='news_videos', blank=True, null=True, verbose_name="Видео")
     
 
     class Meta:
@@ -88,7 +88,7 @@ class Concerts(models.Model):
     
 class Info(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Заголовок")
-    date = models.DateField()
+    date = models.DateTimeField(blank=True, null=True, verbose_name="дата")
     slug = models.SlugField(
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )
@@ -96,14 +96,14 @@ class Info(models.Model):
     image = models.ImageField(
         upload_to="info_images", blank=True, null=True, verbose_name="Изображение"
     )
-    videofile = models.FileField(upload_to='info_videos', null=True, verbose_name="Видео")
+    videofile = models.FileField(upload_to='info_videos',blank=True, null=True, verbose_name="Видео")
     
     
     class Meta:
         db_table = "info_about_group"
         verbose_name = "событие"
         verbose_name_plural = "события"
-        ordering = ("date",)
+        ordering = ("-date",)
 
     def __str__(self):
         return self.name

@@ -1,21 +1,40 @@
-{% extends 'base.html' %} {% load static %} {%block css %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+{%block css %}
 <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}" />
-{% endblock %} {% block content %}
-<div class="mt-3 pt-4 custom-shadow rounded">
+{% endblock %} 
+
+
+{% block content %}
+<div>
+  <h5 style="color: rgba(179, 78, 6, 0.885); padding-left: 1%; padding-top: 1%">Контактная информация</h5>
+  <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
+</div>
+
   <h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2>
   <div class="btn-group a">
-    <a class="m-3" href="#"
-      ><button type="button" class="but custom-shadow rounded">Почта</button></a
-    >
-    <a class="m-3" href="#"
-      ><button class="but custom-shadow rounded">Мы в ВК</button></a
-    >
-    <a class="m-3" href="#"
-      ><button class="but custom-shadow rounded">Телефон</button></a
-    >
-    <a class="m-3" href="#"
-      ><button class="but custom-shadow rounded">Мы в instagram</button></a
-    >
+    <a class="m-3" href="#">
+      <button type="button" class="but custom-shadow rounded">
+        Почта
+      </button>
+      </a>
+    <a class="m-3" href="#">
+      <button class="but custom-shadow rounded">
+        Мы в ВК
+      </button>
+    </a>
+    <a class="m-3" href="#">
+      <button class="but custom-shadow rounded">
+        Телефон
+      </button>
+    </a>
+    <a class="m-3" href="#">
+      <button class="but custom-shadow rounded">
+        Мы в instagram
+      </button>
+    </a>
   </div>
-</div>
+
 {% endblock %}

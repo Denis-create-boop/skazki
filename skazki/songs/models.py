@@ -3,6 +3,8 @@ from django.urls import reverse
 
 class Songs(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name="Название")
+    text = models.CharField(max_length=150, blank=True, null=True, verbose_name="Автор текста")
+    music = models.CharField(max_length=150, blank=True, null=True, verbose_name="Автор музыки")
     date_realeese = models.DateField(verbose_name="Дата выхода")
     date = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
     slug = models.SlugField(
@@ -21,7 +23,7 @@ class Songs(models.Model):
         db_table = "songs"
         verbose_name = "песню"
         verbose_name_plural = "песни"
-        ordering = ("-date",)
+        ordering = ("-date_realeese",)
 
     def __str__(self):
         return self.name
@@ -32,15 +34,19 @@ class Songs(models.Model):
     
     
     def get_song(self):
-        names_songs = self.album_list.split()
-        ls_name = []
-        
-        for i in range(2, len(names_songs) + 1, 3):
-            ls_name.append(names_songs[i])
+        names_songs = self.album_list.split('\n')
+        songs = []
         result = []
+        for song in names_songs:
+            if song[4] != '-':
+                songs.append(song[4:].strip())
+            else:
+                songs.append(song[5:].strip())    
+
+        for i in range(1, len(songs) + 1):
+
+            result.append([i, songs[i-1]])
             
-        for i in range(1, len(ls_name) + 1):
-            result.append([i, ls_name[i - 1]])
         
         return result
         

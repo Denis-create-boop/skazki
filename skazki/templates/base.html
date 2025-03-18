@@ -24,8 +24,7 @@
         </div>
         
         <div class="up_fon">
-            
-            <img src="/static/deps/images/bg-image.png" alt="" width="80%" height="100%"> 
+               <img class="custom-shadow" src="/static/deps/images/bg-image.png" alt="img" width="76%" height="100%">  
         </div>
         <header>
             <nav class="navbar-expand-lg" data-bs-theme="dark">
@@ -132,7 +131,7 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="#">
+                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'info:info' %}">
                                         <p class="text-on-button">
                                             КОНТАКТЫ
                                         </p>
@@ -155,39 +154,41 @@
                             </div>
                                 
                         {% else %}
-                            
-                                <a class="nav-link dropdown-toggle text-white div nav-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <p class="text-on-button">
-                                        МОЙ ПРОФИЛЬ
-                                    </p>
-                                </a>
-
-                                <ul class="dropdown-menu">
+                            <a class="nav-link button_enter dropdown-toggle text-white"
+                                href="#"
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                <p class="text-on-button">
+                                    ПРОФИЛЬ
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-white" href="{% url 'user:users_cart' %}">Корзина</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" href="{% url 'user:profile' %}">Личный кабинет</a>
+                                </li>
+                                {% if user.is_admin or user.is_staff %}
                                     <li>
-                                        <a class="dropdown-item text-white" href="{% url 'user:users_cart' %}">Корзина</a>
+                                        <a class="dropdown-item text-white" href="{% url 'admin:index' %}">Админ панель</a>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item text-white" href="{% url 'user:profile' %}">Личный кабинет</a>
-                                    </li>
-                                    {% if user.is_admin or user.is_staff %}
-                                        <li>
-                                            <a class="dropdown-item text-white" href="{% url 'admin:index' %}">Админ панель</a>
-                                        </li>
-                                    {% endif %}
-                                    <li>
-                                        <hr class="dropdown-divider"/>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item text-white" href="{% url 'user:logout' %}">Выйти</a>
-                                    </li>
-                                </ul>
+                                {% endif %}
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" href="{% url 'user:logout' %}">Выйти</a>
+                                </li>
+                            </ul>
  
                         {% endif %}
                     </div>
             </nav>
         </header>
         
-        <aside>
+        <aside class="custom-shadow">
             {% csrf_token %}
             <h6 style="color: rgba(179, 78, 6, 0.885); padding-left: 2%;">Ближайшие концерты:</h6>
             <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;;">
@@ -213,7 +214,7 @@
         <main>
         <section>
             <!-- Контент -->
-            <div class="content">
+            <div class="content custom-shadow">
                 {% block news %}{% endblock %}
                 <!-- Контент на странице --> 
                     {% block content %}{% endblock %}

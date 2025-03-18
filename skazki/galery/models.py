@@ -5,7 +5,7 @@ class CategoriesImages(models.Model):
     data = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=150, unique=True, verbose_name="заголовок")
     description = models.TextField(blank=True, null=True, verbose_name="описание")
-    photograph = models.CharField(blank=True, null=True, verbose_name="фотограф")
+    photograph = models.CharField(blank=True, null=True, max_length=250, verbose_name="фотограф")
     slug = models.SlugField(
         max_length=200, unique=True, blank=True, null=True, verbose_name="URL"
     )

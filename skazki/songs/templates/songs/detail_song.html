@@ -29,12 +29,11 @@
                 {% for el in song.get_song %}
                     {% if el.1 == song.name %}
                     <div style="color:rgb(235, 222, 105)">
-                        {{ el.0 }} - {{ el.1 }}
+                        {{  el.0 }} - {{ el.1 }}
                     </div>
-                        
                     {% else %}
                         <div style="color:aliceblue">
-                            {{ el.0 }} - {{ el.1 }}
+                            {{ el.0 }} - {{ el.1}}
                         </div>
                         
                 {% endif %}
@@ -43,6 +42,12 @@
     </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
         <p style="color: aliceblue;">Выпущена: {{ song.date_realeese }}</p>
+        {% if song.text %}
+            <p style="color: aliceblue;">Автор текста: {{ song.text }}</p>
+        {% endif %}
+        {% if song.music %}
+            <p style="color: aliceblue;">Автор музыки: {{ song.music }}</p>
+        {% endif %}
     </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
         <h4 style="color: rgb(46, 240, 205); text-align: center;">Описание песни</h4>

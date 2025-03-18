@@ -8,13 +8,16 @@ class SongsAdmin(admin.ModelAdmin):
         "name",
         "date",
         "date_realeese",
-        "album_list",
+        "text",
+        "music",
     ]
     search_fields = ["name", "description", "date", "date_realeese",]
 
     fields = [
         "name",
         "slug",
+        "text",
+        "music",
         "description",
         "image",
         "date_realeese",

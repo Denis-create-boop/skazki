@@ -44,8 +44,8 @@
 {% block pagination %}
     <!-- Пагинация -->
     {% if merch_shop %}
-    <nav>
-        <ul class="pagination justify-content-center my-4">
+    <nav class="content pag">
+        <ul class="pagination justify-content-center my-6">
             <div class="custom-shadow d-flex">
                 <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">
                     <a class="page-link" 

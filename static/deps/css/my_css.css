@@ -177,7 +177,7 @@ aside img {
   display: inline-block;
   transition: transform 0.3s ease;
   text-decoration: none;
-  color: rgb(243, 245, 133);
+  color: rgb(206, 228, 131);
 }
 
 
@@ -187,16 +187,16 @@ aside img {
   justify-content: center;
   transition: transform 0.3s ease;
   text-decoration: none;
-  color: rgb(243, 245, 133);
+  color: rgb(206, 228, 131);
 }
 
 .details:hover {
-  color: rgb(240, 146, 146);
+  color: rgb(70, 118, 118);
   transform: scale(1.2);
 }
 
 .details1:hover {
-  color: rgb(240, 146, 146);
+  color: rgb(70, 118, 118);
   transform: scale(1.2);
 }
 
@@ -235,4 +235,10 @@ aside img {
 
 .button_enter:hover {
   background-color: rgb(9, 23, 26);
+}
+
+.pag {
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }

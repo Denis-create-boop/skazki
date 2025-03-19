@@ -11,7 +11,7 @@
                 <!-- Профиль с данными пользователя -->
                 <div class="col-md-5">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Профиль пользователя</h3>
+                        <h3 style="color: rgb(2, 28, 28);">Профиль пользователя</h3>
                         <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
@@ -96,7 +96,7 @@
                 {% user_carts request as carts %}
                 <div class="col-md-7">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Корзина</h3>
+                        <h3 style="color:rgb(1, 17, 18)">Корзина</h3>
                         <div class="container" id="cart-items-container">
                             <!-- Разметка корзины -->
                             {% include "carts/includes/included_cart.html" %}
@@ -112,7 +112,7 @@
                 <!-- Оформленные заказы -->
                 <div class="col-md-12">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Мои заказы</h3>
+                        <h3 style="color:rgb(1, 11, 14);">Мои заказы</h3>
                         <!-- Разметка заказов -->
                         <div class="container">
                             <div class="accordion" id="accordionExample">
@@ -120,7 +120,7 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading{{ order.id }}">
                                     <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
-                                        Заказ № {{ order.id }} - {{ order.created_timestamp }} | Статус: <strong class="mx-2">{{order.status}}</strong>
+                                        Заказ № {{ order.id }} - {{ order.created_timestamp }} | Статус: <strong class="mx-2">{{ order.status }}</strong>
                                     </button>
                                 </h2>
                                 <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}" aria-labelledby="heading{{ order.id }}" data-bs-parent="#accordionExample">
@@ -137,7 +137,7 @@
                                             <tbody>
                                                 {% for item in order.orderitem_set.all %}
                                                 <tr>
-                                                    <td><a class="text-white" href="{% url 'merch_shop:merch' item.product.slug %}">{{ item.product.name }}</a></td>
+                                                    <td><a class="text-white" href="{% url 'merch_shop:product' item.product.slug %}">{{ item.product.name }}</a></td>
                                                     <td>{{ item.quantity }}</td>
                                                     <td>{{ item.price }}</td>
                                                     <td>{{ item.products_price }}</td>

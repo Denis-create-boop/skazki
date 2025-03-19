@@ -6,8 +6,9 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import redirect
 
-from carts.models import Cart
 
+from carts.models import Cart
+from main.models import Concerts
 from orders.models import Order, OrderItem
 from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 
@@ -36,8 +37,8 @@ def login(request):
                 return HttpResponseRedirect(reverse("main:news"))
     else:
         form = UserLoginForm()
-
-    context = {"title": "Сказки Черного Города - Авторизация", "form": form}
+    concerts = Concerts.objects.all()
+    context = {"title": "Сказки Черного Города - Авторизация", "form": form, "concerts": concerts}
     return render(request, "users/login.html", context)
 
 
@@ -59,8 +60,9 @@ def registration(request):
             return HttpResponseRedirect(reverse("main:news"))
     else:
         form = UserRegistrationForm()
-
-    context = {"title": "Сказки Черного Города - Регистрация", "form": form}
+        
+    concerts = Concerts.objects.all()
+    context = {"title": "Сказки Черного Города - Регистрация", "form": form, "concerts": concerts}
     return render(request, "users/registration.html", context)
 
 
@@ -85,8 +87,8 @@ def profile(request):
             )
         ).order_by("-id")
     )
-
-    context = {"title": "Сказки Черного Города - Кабинет", "form": form, "orders": orders}
+    concerts = Concerts.objects.all()
+    context = {"title": "Сказки Черного Города - Кабинет", "form": form, "orders": orders, "concerts": concerts}
     return render(request, "users/profile.html", context)
 
 def users_cart(request):

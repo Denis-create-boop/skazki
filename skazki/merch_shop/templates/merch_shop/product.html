@@ -23,6 +23,7 @@
                 </div>
                 <div class="col-md-4 ">
                     <p class="product_id mt-3">id: {{ product.display_id }}</p>
+                    <p class="card-text">{{ product.description }}</p>
                 </div>
                 <!-- Увеличить изображение в модальном окне -->
                 <div class="modal fade" id="imageModal1" tabindex="-1"
@@ -54,7 +55,6 @@
                     <p class="card-text">Цена со скидкой: <strong>{{ product.sell_price }}</strong></p>
                 {% endif %}
                 <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
                 <a href="{% url 'cart:cart_add' %}" class="btn btn-dark add-to-cart"
                 data-product-id="{{ product.id }}">
                 {% csrf_token %}

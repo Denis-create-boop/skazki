@@ -42,6 +42,7 @@ class OrderItem(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Цена")
     quantity = models.PositiveIntegerField(default=0, verbose_name="Количество")
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата продажи")
+    status = models.CharField(max_length=50, default="В обработке", verbose_name="Статус заказа")
 
     class Meta:
         db_table = "order_item"

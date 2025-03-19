@@ -7,6 +7,7 @@ from django.db import transaction
 from carts.models import Cart
 from orders.models import Order, OrderItem
 from orders.forms import CreateOrderForm
+from main.models import Concerts
 
 
 @login_required
@@ -28,7 +29,7 @@ def create_order(request):
                             delivery_address = form.cleaned_data["delivery_address"],
                             payment_on_get = form.cleaned_data["payment_on_get"]
                         )
-                        # создать заказные блюда
+                        # создать заказные товары
                         for cart_item in cart_items:
                             product = cart_item.product
                             name = cart_item.product.name
@@ -36,7 +37,7 @@ def create_order(request):
                             quantity = cart_item.quantity
 
                             if product.quantity < quantity:
-                                raise ValidationError(f"Недостаточное количество блюда {name} на кухне\
+                                raise ValidationError(f"Недостаточное количество товара {name} на складе\
                                                     В наличии - {product.quantity}")
                         
                             OrderItem.objects.create(
@@ -63,9 +64,11 @@ def create_order(request):
             "last_name": request.user.last_name,
         }
         form = CreateOrderForm(initial=initial)
+    concerts = Concerts.objects.all()
     context = {
         "title": "Сказки Черного Города - Оформление заказа",
         "form": form,
         "order": True,
+        "concerts": concerts,
     }
     return render(request, "orders/create_order.html", context=context)

@@ -11,6 +11,7 @@ def news(request):
         "title": "Сказки Черного Города - Новости",
         "news" : news,
         "concerts": concerts,
+        "info_text": "Свежие новости:",
     }
     
     return render(request, "main/news.html", context=context)
@@ -25,6 +26,7 @@ def about(request):
         "content": "О нас",
         "concerts": concerts,
         "info": info,
+        "info_text": 'Информация о группе "Сказки Черного Города"',
     }
 
     return render(request, "main/about.html", context)
@@ -38,6 +40,7 @@ def details(request, concert_slug):
         "concert": concert,
         "concerts": concerts,
         "flug": True,
+        "info_text": f"Подробная информация о концерте | {concert}",
     }
     return render(request, "main/details.html", context=context)
 
@@ -48,5 +51,6 @@ def afisha(request):
         "title": "Сказки Черного Города - Афиша",
         "concerts": concerts,
         "flug" : False,
+        "info_text": "Афиша концертов:",
     }
     return render(request, "main/details.html", context=context)

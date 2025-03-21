@@ -4,9 +4,8 @@
 
 
 {% block content %}
-
     <div class="row">
-        <div class="container mt-5">
+        <div class="container mt-1 p-3">
             <div class="row">
                 <!-- Профиль с данными пользователя -->
                 <div class="col-md-5">
@@ -93,22 +92,19 @@
                     </div>
                 </div>
                 <!-- Корзина -->
-                {% user_carts request as carts %}
+                    {% user_carts request as carts %}
                 <div class="col-md-7">
-                    <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 style="color:rgb(1, 17, 18)">Корзина</h3>
+                    <div class=" bg-white p-3 mb-4 mx-2 rounded custom-shadow">
+                        <h3 style="color:rgb(1, 17, 18); padding-left: 2%;">Корзина</h3>
                         <div class="container" id="cart-items-container">
                             <!-- Разметка корзины -->
                             {% include "carts/includes/included_cart.html" %}
                             <!-- Закончилась разметка корзины -->
                         </div>
-                        <!-- {% if carts %}
-                            <a class="btn btn-dark" href="../orders/create_order.html">
-                                Оформить заказ
-                            </a>
-                        {% endif %} -->
                     </div>
                 </div>
+                
+                
                 <!-- Оформленные заказы -->
                 <div class="col-md-12">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
@@ -137,7 +133,7 @@
                                             <tbody>
                                                 {% for item in order.orderitem_set.all %}
                                                 <tr>
-                                                    <td><a class="text-white" href="{% url 'merch_shop:product' item.product.slug %}">{{ item.product.name }}</a></td>
+                                                    <td><a class="text-white" href="{% url 'merch_shop:product' item.product.slug item.product.name %}">{{ item.product.name }}</a></td>
                                                     <td>{{ item.quantity }}</td>
                                                     <td>{{ item.price }}</td>
                                                     <td>{{ item.products_price }}</td>
@@ -160,9 +156,3 @@
         </div>
     </div>
 {% endblock %} 
-
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container"></div>
-    </footer>
-{% endblock %}

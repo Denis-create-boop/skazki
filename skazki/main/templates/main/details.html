@@ -2,21 +2,9 @@
 {% load static %}
 
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}"/>
-{% endblock %}
-
 {% block content %}
     
     {% if flug %}
-        <div>
-            <h5 style="color: rgba(179, 78, 6, 0.885); padding-left: 1%; padding-top: 1%">Подробная информация о концерте</h5>
-            <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
-        </div>
-        <div class="h-5">
-            <h5>{{ concert.name }}</h5>
-        </div>
-        <hr  style="color: bisque;">
         <p style="margin-left: 2%; margin-right: 2%; color: aliceblue;">{{ concert.description }}</p>
         <p style="margin-left: 2%; color: aliceblue;">место - {{ concert.place }}</p>
         <a class="details1" href="https://{{ concert.tickets }}">Купить билеты</a>
@@ -32,10 +20,7 @@
 
     {% else %}
             {% csrf_token %}
-            <div>
-                <h5 style="color: rgba(179, 78, 6, 0.885); padding-left: 1%; padding-top: 1%">Афиша концертов:</h5>
-                <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
-            </div>
+            {% if concerts %}
             {% for concert in concerts %}
                 <div style="display: flex; justify-content: space-between; margin-left: 2%;">
                     <div style="width: 13%;">
@@ -69,6 +54,9 @@
                 <hr style="border: none; border-top: 1px dotted bisque; width: 90%; margin: auto; margin-top: 2%; margin-bottom: 2%;" />
                 
             {% endfor %}
+            {% else %}
+                <h5 style="display: block; text-align: center; color: aliceblue;">Ближайших концертов нет</h5>
+            {% endif %}
     {% endif %}
 
 {% endblock %}

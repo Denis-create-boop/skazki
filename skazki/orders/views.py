@@ -70,5 +70,6 @@ def create_order(request):
         "form": form,
         "order": True,
         "concerts": concerts,
+        "info_text": "Оформление заказа"
     }
     return render(request, "orders/create_order.html", context=context)

@@ -12,6 +12,7 @@ def galery(request):
         "categories": categories,
         "images": images,
         "concerts": concerts,
+        "info_text": "Галерея",
     }
     return render(request, 'galery/galery.html', context=context)
 

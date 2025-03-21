@@ -1,14 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %} 
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock %}
-
-
-{%block css %}
-<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}" />
-{% endblock %} 
 
 {% block content %}
     <div class="row">
@@ -101,8 +93,3 @@
     </div>
 {% endblock %} 
 
-{% block footer %}
-    <footer class="py-4 bg-dark">
-        <div class="container"></div>
-    </footer>
-{% endblock %}

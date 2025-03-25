@@ -13,9 +13,9 @@ urlpatterns = [
     path("cart/", include("carts.urls", namespace="cart")),
     path("orders/", include("orders.urls", namespace="orders")),
     path("info/", include("info.urls", namespace="info")),
-    path("songs/", include("songs.urls", namespace="songs")),
     path("merch_shop/", include("merch_shop.urls", namespace="merch_shop")),
     path("galery/", include("galery.urls", namespace="galery")),
+    path("albums/", include("albums.urls", namespace="albums")),
 ]
 
 if settings.DEBUG:

@@ -1,6 +1,6 @@
 
 body {
-  background: linear-gradient(-45deg, #060a11, #0d1620, #090c18, #051f1f);
+  background: linear-gradient(-45deg, #100518, #0d1620, #090c18, #051f1f);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   height: 100vh;
@@ -63,7 +63,7 @@ h3 {
 .div {
   display: flex;
   justify-content: center;
-  width: 8.1%;
+  width: 9%;
 }
 
 .button-in-line {
@@ -241,4 +241,15 @@ aside img {
   display: flex;
   margin: auto;
   justify-content: center;
+}
+
+.songs_in_album {
+  color: rgb(228, 194, 194);
+  text-decoration: none;
+  margin-top: 1%;
+}
+
+.songs_in_album:hover {
+  color:#5b4429;
+  transform: scale(1.2);
 }

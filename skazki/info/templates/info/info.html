@@ -4,29 +4,49 @@
 
 
 {% block content %}
+	<h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2>
+	{% for person in persons %}
+		<p class="p_news">
+			{{ person.profession }}
+		</p>
+		<p class="p_news">
+			{{ person.name }}
+		</p>
+		{% if person.description %}
+			<p class="p_news">
+				{{ person.description }}
+			</p>
+		{% endif %}
+		{% if person.phone %}
+			<p class="p_news">
+				{{ person.phone }}
+			</p>
+		{% endif %}
+		{% if person.name_address_1 and person.address_1 %}
+			<p class="p_news">
+				{{ person.name_address_1 }}
+				{{ person.address_1 }}
+			</p>
+		{% endif %}
+		{% if person.name_address_2 and person.address_2 %}
+			<p class="p_news">
+				{{ person.name_address_2 }}
+				{{ person.address_2 }}
+			</p>
+		{% endif %}
+		{% if person.name_address_3 and person.address_3 %}
+			<p class="p_news">
+				{{ person.name_address_3 }}
+				{{ person.address_3 }}
+			</p>
+		{% endif %}
 
-  <h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2>
-  <div class="btn-group a">
-    <a class="m-3" href="#">
-      <button type="button" class="but custom-shadow rounded">
-        Почта
-      </button>
-      </a>
-    <a class="m-3" href="#">
-      <button class="but custom-shadow rounded">
-        Мы в ВК
-      </button>
-    </a>
-    <a class="m-3" href="#">
-      <button class="but custom-shadow rounded">
-        Телефон
-      </button>
-    </a>
-    <a class="m-3" href="#">
-      <button class="but custom-shadow rounded">
-        Мы в instagram
-      </button>
-    </a>
-  </div>
-
+	{% endfor %}
+	<br>
+	{% for address in addresses %}
+		<p class="p_news">
+			{{ address.name }}
+			{{ address.address }}
+		</p>
+	{% endfor %}
 {% endblock %}

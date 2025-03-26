@@ -2,9 +2,6 @@
 {% load static %}
 {% load merch_shop_tags %}
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock %}
 
 
 {% block content %}
@@ -38,15 +35,7 @@
                     <p style="text-align:center; color: aliceblue;">цена: {{ product.price }} руб.</p> 
                 {% endif %} 
                 <br>
-                <a href="{% url 'cart:cart_add' %}" class="add-to-cart"
-                        data-product-id="{{ product.id }}">
-                        {% csrf_token %}
-                        <img
-                            src="{% static 'deps/icons/cart-plus.svg' %}"
-                            alt="Catalog Icon"
-                            width="32"
-                            height="32"/>
-                        </a>        
+                <a class="a_song" href="#" type="button">купить</a>      
             </div>
         </div>
     {% endfor %}  

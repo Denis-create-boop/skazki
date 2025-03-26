@@ -62,8 +62,9 @@
             </div>
         {% endif %}
             <div style="width: 50%;">
-                <h4 style="color: rgb(46, 240, 205);">Песни в альбоме:</h4>
                 {% if songs_in_album %}
+                <h4 style="color: rgb(46, 240, 205);">Песни в альбоме:</h4>
+                
                     {% for el in songs_in_album %}
                         <div style="color:aliceblue">
                             <a class="songs_in_album" href="{% url 'albums:details_song' el.slug album.slug %}">{{ forloop.counter }} - {{ el.name }}</a>
@@ -75,10 +76,10 @@
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
         <p style="color: aliceblue;">Выпущена: {{ song.date_realeese }}</p>
         {% if song.text %}
-            <p style="color: aliceblue;">Автор текста: {{ song.text }}</p>
+            <p style="color: aliceblue;">Автор текста: {{ song.author_text }}</p>
         {% endif %}
         {% if song.music %}
-            <p style="color: aliceblue;">Автор музыки: {{ song.music }}</p>
+            <p style="color: aliceblue;">Автор музыки: {{ song.author_music }}</p>
         {% endif %}
     </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
@@ -101,7 +102,7 @@
     {% endif %}
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
         <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Текст песни</h4>
-        <p style="color: aliceblue;">{{ song.about_song|linebreaksbr }}</p>
+        <p style="color: aliceblue;">{{ song.text|linebreaksbr }}</p>
     </div>
  
     <br><br>

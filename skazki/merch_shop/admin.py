@@ -2,8 +2,6 @@ from django.contrib import admin
 
 from merch_shop.models import Categories, Products
 
-# admin.site.register(Categories)
-#admin.site.register(Products)
 
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
@@ -19,6 +17,7 @@ class ProductsAdmin(admin.ModelAdmin):
         "quantity",
         "price",
         "discount",
+        "buy_url",
     ]
     list_editable = ["quantity", "price", "discount",]
     search_fields = ["name", "description",]
@@ -31,6 +30,7 @@ class ProductsAdmin(admin.ModelAdmin):
         "name",
         "category",
         "slug",
+        "buy_url",
         "description",
         ("price", "discount"),
         "quantity",

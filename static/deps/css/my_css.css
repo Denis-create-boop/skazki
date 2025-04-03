@@ -253,3 +253,9 @@ aside img {
   color:#5b4429;
   transform: scale(1.2);
 }
+
+.person {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}

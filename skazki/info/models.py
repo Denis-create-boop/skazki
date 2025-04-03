@@ -5,7 +5,7 @@ from django.db import models
 class Persons(models.Model):
     name = models.CharField(max_length=250, verbose_name="ФИО")
     profession = models.CharField(max_length=250, blank=True, null=True, verbose_name="Профессия")
-    description = models.TextField(verbose_name="Описание")
+    description = models.TextField(blank=True, null=True, verbose_name="Описание")
     phone = models.CharField(max_length=20, blank=True, null=True, verbose_name="Телефон")
     name_address_1 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Название соцсети")
     address_1 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Ссылка на соцсеть")

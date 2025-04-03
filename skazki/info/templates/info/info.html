@@ -5,10 +5,14 @@
 
 {% block content %}
 	<h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2>
+	{% if persons %}
 	{% for person in persons %}
-		<p class="p_news">
-			{{ person.profession }}
-		</p>
+		<div class="person">
+			<p class="p_news">
+				{{ person.profession }}
+			</p>
+		</div>
+		
 		<p class="p_news">
 			{{ person.name }}
 		</p>
@@ -19,34 +23,34 @@
 		{% endif %}
 		{% if person.phone %}
 			<p class="p_news">
-				{{ person.phone }}
+				Телефон: {{ person.phone }}
 			</p>
 		{% endif %}
 		{% if person.name_address_1 and person.address_1 %}
-			<p class="p_news">
-				{{ person.name_address_1 }}
-				{{ person.address_1 }}
-			</p>
+			<a class="p_news a_song" href="{{ person.address_1 }}">
+				{{ person.name_address_1 }}	
+			</a>
 		{% endif %}
 		{% if person.name_address_2 and person.address_2 %}
-			<p class="p_news">
+			<a class="p_news a_song" href="{{ person_address_2}}">
 				{{ person.name_address_2 }}
-				{{ person.address_2 }}
-			</p>
+			</a>
 		{% endif %}
 		{% if person.name_address_3 and person.address_3 %}
-			<p class="p_news">
+			<a class="p_news a_song" href="{{ person.address_3 }}">
 				{{ person.name_address_3 }}
-				{{ person.address_3 }}
-			</p>
+			</a>
 		{% endif %}
 
 	{% endfor %}
-	<br>
+	{% endif %}
+	
+	{% if addresses %}
 	{% for address in addresses %}
-		<p class="p_news">
+		<a class="p_news a_song" href="{{ address.address }}">
 			{{ address.name }}
-			{{ address.address }}
-		</p>
+		</a>
+
 	{% endfor %}
+	{% endif %}
 {% endblock %}

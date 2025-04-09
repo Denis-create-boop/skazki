@@ -5,17 +5,16 @@
 
 {% block content %}
     <div class="row">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 90%; margin-left: 5%;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 94%; margin-left: 3%; margin-bottom: 5%;">
     {% if categories %}
-    {% for category in categories %}
+    {% for category in merch_shop %}
         <div class="cart_songs">  
             <div>
                 {% if category.image %}
-                    <img src="{{ category.image.url }}" alt="img" width="100%" height="90%">
+                    <img src="{{ category.image.url }}" alt="img" width="99%" height="90%">    
                 {% else %}
-                    <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="100%" height="90%">
+                    <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="99%" height="90%">
                 {% endif %}
-                {% csrf_token %}
                 <a class="a_song" href="{% url 'merch_shop:get_products' category.slug category.name %}">{{ category.name }}</a>   
                 
             </div>
@@ -33,30 +32,32 @@
 {% block pagination %}
     <!-- Пагинация -->
     {% if merch_shop %}
-    <nav class="content pag">
-        <ul class="pagination justify-content-center my-6">
-            <div class="custom-shadow d-flex">
-                <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">
-                    <a class="page-link" 
-                        href="{% if merch_shop.has_previous %}?{% change_params page=merch_shop.previous_page_number %}{% else %}#{% endif %}">Назад</a>
-                </li>
-
-                {% for page in merch_shop.paginator.page_range %} 
-                    {% if page >= merch_shop.number|add:-2 and page <= merch_shop.number|add:2 %}
-                        <li class="page-item {% if merch_shop.number == page %} active {% endif %}">
-                            <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+        {% if merch_shop.has_next or merch_shop.has_previous %}
+            <nav class="content pag">
+                <ul class="pagination justify-content-center my-6">
+                    <div class="custom-shadow d-flex">
+                        <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">
+                            <a class="page-link" 
+                                href="{% if merch_shop.has_previous %}?{% change_params page=merch_shop.previous_page_number %}{% else %}#{% endif %}">Назад</a>
                         </li>
-                    {% endif %} 
-                {% endfor %}
-            
-                <li class="page-item {% if not merch_shop.has_next %}disabled{% endif %}">
-                    <a
-                        class="page-link"
-                        href="{% if merch_shop.has_next %}?{% change_params page=merch_shop.next_page_number %}{% else %}#{% endif %}">Следующая</a>
-                </li>
-            </div>
-        </ul>
-    </nav>
+                    
+                        {% for page in merch_shop.paginator.page_range %} 
+                            {% if page >= merch_shop.number|add:-2 and page <= merch_shop.number|add:2 %}
+                                <li class="page-item {% if merch_shop.number == page %} active {% endif %}">
+                                    <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                                </li>
+                            {% endif %} 
+                        {% endfor %}
+                            
+                        <li class="page-item {% if not merch_shop.has_next %}disabled{% endif %}">
+                            <a
+                                class="page-link"
+                                href="{% if merch_shop.has_next %}?{% change_params page=merch_shop.next_page_number %}{% else %}#{% endif %}">Следующая</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        {% endif %}
     {% endif %}
 {% endblock %} 
 

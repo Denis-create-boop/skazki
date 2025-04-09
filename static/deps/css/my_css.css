@@ -211,7 +211,7 @@ aside {
 .cart_songs {
   display: flex; 
   margin: auto; 
-  flex-basis: 23.5%; 
+  flex-basis: 24.5%; 
   justify-content: center; 
   margin-bottom: 2%; 
   margin-top: 2%;
@@ -278,3 +278,4 @@ aside {
   margin-top: 1%;
   margin-bottom: 4%;
 }
+

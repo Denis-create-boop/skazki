@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="row">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 90%; margin-left: 5%; margin-bottom: 5%;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 94%; margin-left: 3%; margin-bottom: 5%;">
     {% for product in products %}
         <div class="cart_songs">  
             <div>
@@ -25,7 +25,6 @@
                     <p style="text-align:center; color: aliceblue;">
                         {{ product.description|truncatechars:25 }}
                     </p>
-                        
                 {% endif %}
                 <!--есть ли скидка на товар-->
                 {% if product.discount %}
@@ -34,7 +33,11 @@
                     <p style="text-align:center; color: aliceblue;">цена: {{ product.price }} руб.</p> 
                 {% endif %} 
                 <br>
-                <a class="a_song" href="#" type="button">купить</a>      
+                {% if 'https://' in product.buy_url %}
+                    <a class="a_song" href="{{ product.buy_url }}" type="button">купить</a>    
+                {% else %}
+                    <a class="a_song" href="https://{{ product.buy_url }}" type="button">купить</a>
+                {% endif %}
             </div>
         </div>
     {% endfor %}  
@@ -46,29 +49,31 @@
 {% block pagination %}
     <!-- Пагинация -->
     {% if products %}
-    <nav class="content pag">
-        <ul class="pagination justify-content-center my-4">
-            <div class="custom-shadow d-flex">
-                <li class="page-item {% if not merch_shop.has_previous %}disabled{% endif %}">
-                    <a class="page-link" 
-                        href="{% if merch_shop.has_previous %}?{% change_params page=merch_shop.previous_page_number %}{% else %}#{% endif %}">Назад</a>
-                </li>
-
-                {% for page in products.paginator.page_range %} 
-                    {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
-                        <li class="page-item {% if merch_shop.number == page %} active {% endif %}">
-                            <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+        {% if products.has_next %}
+            <nav class="content pag">
+                <ul class="pagination justify-content-center my-4">
+                    <div class="custom-shadow d-flex">
+                        <li class="page-item {% if not products.has_previous %}disabled{% endif %}">
+                            <a class="page-link" 
+                                href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}{% else %}#{% endif %}">Назад</a>
                         </li>
-                    {% endif %} 
-                {% endfor %}
-            
-                <li class="page-item {% if not merch_shop.has_next %}disabled{% endif %}">
-                    <a
-                        class="page-link"
-                        href="{% if merch_shop.has_next %}?{% change_params page=merch_shop.next_page_number %}{% else %}#{% endif %}">Следующая</a>
-                </li>
-            </div>
-        </ul>
-    </nav>
+
+                        {% for page in products.paginator.page_range %} 
+                            {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
+                                <li class="page-item {% if merch_shop.number == page %} active {% endif %}">
+                                    <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                                </li>
+                            {% endif %} 
+                        {% endfor %}
+                            
+                        <li class="page-item {% if not products.has_next %}disabled{% endif %}">
+                            <a
+                                class="page-link"
+                                href="{% if products.has_next %}?{% change_params page=products.next_page_number %}{% else %}#{% endif %}">Следующая</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        {% endif %}
     {% endif %}
 {% endblock %}

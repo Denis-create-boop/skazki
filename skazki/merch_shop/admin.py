@@ -6,7 +6,7 @@ from merch_shop.models import Categories, Products
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    list_display = ["name", "image"]
+    list_display = ["name",]
 
 
 @admin.register(Products)

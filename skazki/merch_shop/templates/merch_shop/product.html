@@ -3,59 +3,35 @@
 
 
 {% block content %}
-    <div class="container mt-5">
-        <div class="card mb-4 custom-shadow">
-            <div class="row">
-                <!-- Миниатюры -->
-                 
-                <div class="col-md-4">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}"
-                            class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
-                    {% else %}
-                        <img src="{% static 'deps/images/Not found image.png' %}"
-                            class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
-                    {% endif %}
-                </div>
-                <div class="col-md-4 ">
-                    <p class="product_id mt-3">id: {{ product.display_id }}</p>
-                    <p class="card-text">{{ product.description }}</p>
-                </div>
-                <!-- Увеличить изображение в модальном окне -->
-                <div class="modal fade" id="imageModal1" tabindex="-1"
-                    aria-labelledby="imageModal1Label" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Закрыть"></button>
-                            </div>
-                            <div class="modal-body">
-                                {% if product.image %}
-                                    <img src="{{ product.image.url }}"
-                                        class="img-fluid" alt="Изображение 1">
-                                {% else %}
-                                    <img src="{% static 'deps/images/Not found image.png' %}"
-                                        class="img-fluid" alt="Изображение 1">
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        {% if product.image %}
+            <div style="width: 40%; margin-left: 5%;">
+                <img src="{{ product.image.url }}" alt="img" width="90%" height="100%">
             </div>
-            <!-- Описание товара -->
-            <div class="card-body">
-                <p class="card-text">Цена: <strong>{{ product.price }}</strong></p>
-                {% if product.discount %}
-                    <p class="card-text">Цена со скидкой: <strong>{{ product.sell_price }}</strong></p>
-                {% endif %}
-                <h5 class="card-title">{{ product.name }}</h5>
-                <a href="#" class="btn btn-dark add-to-cart"
-                data-product-id="{{ product.id }}">
-                {% csrf_token %}
-                купить</a>
+        {% else %}
+            <div style="width: 40%; margin-left: 5%;">
+                <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="90%" height="100%">
             </div>
+        {% endif %}
+        <div style="width: 55%;">
+            <p style= "color: aliceblue;">id: {{ product.display_id }}</p>
+            <p style="color: aliceblue;">{{ product.description }}</p>
         </div>
+        
     </div>
+    <br>
+    <!-- Описание товара -->
+    <p class="p_news">Цена: <strong>{{ product.price }}</strong></p>
+    {% if product.discount %}
+        <p class="card-text">Цена со скидкой: <strong>{{ product.sell_price }}</strong></p>
+    {% endif %}
+    <h5 class="p_news">{{ product.name }}</h5>
+    <div style="display: flex; margin: auto; justify-content: center; margin-bottom: 4%;">
+        {% if 'https://' in product.buy_url %}
+            <a href="{{ product.buy_url }}" class="details">купить</a>
+        {% else %}
+            <a href="https://{{ product.buy_url }}" class="details">купить</a>    
+        {% endif %}
+    </div>
+                   
 {% endblock %}

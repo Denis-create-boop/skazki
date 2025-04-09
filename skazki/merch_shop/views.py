@@ -11,7 +11,7 @@ def merch_shop(request):
     concerts = Concerts.objects.all()
         
     categories = Categories.objects.all()
-    paginator = Paginator(merch_shop, 9)
+    paginator = Paginator(merch_shop, 4)
     current_page = paginator.page(int(page))
     
     context = {
@@ -36,7 +36,7 @@ def get_products(request, category_slug, name):
         merch_shop = Products.objects.filter(category__slug=category_slug)
         merch_shop = merch_shop.filter(discount_gt=0)
 
-    paginator = Paginator(merch_shop, 3)
+    paginator = Paginator(merch_shop, 9)
     current_page = paginator.page(int(page))
 
     context = {

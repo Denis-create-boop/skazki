@@ -4,18 +4,19 @@
 
 
 {% block content %}
-	<h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2>
+	<!-- <h2 class="m-2 text"><strong>Свяжитесь с нами:</strong></h2> -->
 	{% if persons %}
 	{% for person in persons %}
-		<div class="person">
-			<p class="p_news">
-				{{ person.profession }}
-			</p>
+		<div class="prof">
+			<h5>
+				{{ person.profession }} 
+			</h5>
 		</div>
-		
+		<hr style="color: bisque;">
 		<p class="p_news">
 			{{ person.name }}
 		</p>
+		
 		{% if person.description %}
 			<p class="p_news">
 				{{ person.description }}
@@ -27,30 +28,42 @@
 			</p>
 		{% endif %}
 		{% if person.name_address_1 and person.address_1 %}
-			<a class="p_news a_song" href="{{ person.address_1 }}">
-				{{ person.name_address_1 }}	
+			<a class="p_news person-a" href="{{ person.address_1 }}">
+				Страница в {{ person.name_address_1 }}	
 			</a>
 		{% endif %}
+		<br>
 		{% if person.name_address_2 and person.address_2 %}
-			<a class="p_news a_song" href="{{ person_address_2}}">
-				{{ person.name_address_2 }}
+			<a class="p_news person-a" href="{{ person_address_2}}">
+				Страница  в {{ person.name_address_2 }}
 			</a>
 		{% endif %}
+		<br>
 		{% if person.name_address_3 and person.address_3 %}
-			<a class="p_news a_song" href="{{ person.address_3 }}">
-				{{ person.name_address_3 }}
+			<a class="p_news person-a" href="{{ person.address_3 }}">
+				Страница в {{ person.name_address_3 }}
 			</a>
 		{% endif %}
-
+		<br>
 	{% endfor %}
 	{% endif %}
 	
 	{% if addresses %}
-	{% for address in addresses %}
-		<a class="p_news a_song" href="{{ address.address }}">
-			{{ address.name }}
-		</a>
-
-	{% endfor %}
+	<div class="prof">
+		<h5>
+			Ссылки
+		</h5>
+	</div>
+	<hr style="color: bisque;">
+	<div class="urls">
+		{% for address in addresses %}
+			<a class="p_news person-a" href="{{ address.address }}">
+				{{ address.name }}
+			</a>
+			<br>
+		{% endfor %}
+	</div>
+	
 	{% endif %}
+
 {% endblock %}

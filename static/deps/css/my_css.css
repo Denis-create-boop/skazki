@@ -139,12 +139,6 @@ aside {
 }
 
 
-aside img {
-  width: 90px;
-  float: left;
-}
-
-
 .content {
   display: inline-block;
   margin-left: 12%;
@@ -258,4 +252,29 @@ aside img {
   display: flex;
   margin: auto;
   justify-content: center;
+}
+
+.prof {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 1%;
+  margin-left: 2%;
+  color: aliceblue;
+}
+
+.person-a {
+  text-decoration: none;
+  color: #d8e7e6;
+
+}
+.person-a:hover {
+  color:#26985d;
+  transform: scale(1.2);
+}
+
+.urls {
+  display: block;
+  margin-top: 1%;
+  margin-bottom: 4%;
 }

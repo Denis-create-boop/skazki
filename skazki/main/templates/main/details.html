@@ -7,7 +7,11 @@
     {% if flug %}
         <p style="margin-left: 2%; margin-right: 2%; color: aliceblue;">{{ concert.description }}</p>
         <p style="margin-left: 2%; color: aliceblue;">место - {{ concert.place }}</p>
-        <a class="details1" href="https://{{ concert.tickets }}">Купить билеты</a>
+        {% if 'https://' in concert.tickets %}
+            <a class="details1" href="{{ concert.tickets }}">Купить билеты</a>
+        {% else %}
+            <a class="details1" href="https://{{ concert.tickets }}">Купить билеты</a>
+        {% endif %}
 
         {% if concert.image %}
             <br>
@@ -41,8 +45,12 @@
                     
                 </div>
                 
-                
-                <a class="details1" href="https://{{ concert.tickets }}">Купить билеты</a>
+                {% if 'https://' in concert.tickets %}
+                    <a class="details1" href="{{ concert.tickets }}">Купить билеты</a>
+                    
+                {% else %}
+                    <a class="details1" href="https://{{ concert.tickets }}">Купить билеты</a>
+                {% endif %}
                 {% if concert.image %}
                     <br>
                     <div class="modal-body image-in-news">

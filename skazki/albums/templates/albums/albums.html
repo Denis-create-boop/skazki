@@ -33,7 +33,7 @@
             <div class="cart_songs">  
                 <div>
                     {% if single.image %}
-                        <img src="{{ album.image.url }}" alt="img" width="100%" height="90%">
+                        <img src="{{ single.image.url }}" alt="img" width="100%" height="90%">
                     {% else %}
                         <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="100%" height="90%">
                     {% endif %}

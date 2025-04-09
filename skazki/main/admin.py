@@ -15,6 +15,14 @@ class NewsAdmin(admin.ModelAdmin):
         "description",
         "image",
         "videofile",
+        "name_address_1",
+        "address_1",
+        "name_address_2",
+        "address_2",
+        "name_address_3",
+        "address_3",
+        "name_address_4",
+        "address_4",
     ]
     
     

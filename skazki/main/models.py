@@ -12,6 +12,14 @@ class News(models.Model):
         upload_to="news_images", blank=True, null=True, verbose_name="Изображение"
     )
     videofile = models.FileField(upload_to='news_videos', blank=True, null=True, verbose_name="Видео")
+    name_address_1 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Название ссылки")
+    address_1 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Ссылка")
+    name_address_2 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Название ссылки")
+    address_2 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Ссылка")
+    name_address_3 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Название ссылки")
+    address_3 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Ссылка")
+    name_address_4 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Название ссылки")
+    address_4 = models.CharField(max_length=250, blank=True, null=True, verbose_name="Ссылка")
     
 
     class Meta:
@@ -38,7 +46,7 @@ class Concerts(models.Model):
     image = models.ImageField(
         upload_to="concerts_images", blank=True, null=True, verbose_name="Изображение"
     )
-    tickets = models.CharField(max_length=150, blank=True, null=True, verbose_name="Билеты")
+    tickets = models.CharField(max_length=150, verbose_name="Билеты")
     
     
     class Meta:

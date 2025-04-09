@@ -9,7 +9,6 @@ from django.shortcuts import redirect
 
 from carts.models import Cart
 from main.models import Concerts
-from orders.models import Order, OrderItem
 from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
 
 
@@ -79,19 +78,10 @@ def profile(request):
     else:
         form = ProfileForm(instance=request.user)
 
-    orders = (
-        Order.objects.filter(user=request.user).prefetch_related(
-            Prefetch(
-                "orderitem_set",
-                queryset=OrderItem.objects.select_related("product")
-            )
-        ).order_by("-id")
-    )
     concerts = Concerts.objects.all()
     context = {
         "title": "Сказки Черного Города - Личный кабинет", 
-        "form": form, 
-        "orders": orders, 
+        "form": form,
         "concerts": concerts,
         "info_text": "Личный кабинет"
         }

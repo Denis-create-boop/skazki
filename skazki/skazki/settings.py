@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'main',
     'users',
     'carts',
-    'orders',
     'info',
     'merch_shop',
     'galery',

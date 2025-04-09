@@ -44,7 +44,7 @@
     {% if album.image %}
         <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Обложка</h4>
         <div  style="display: flex; margin:auto; justify-content: center; margin-top: 2%;"> 
-            <img src="{{ song.image.url }}" alt="" width="70%">
+            <img src="{{ song.image.url }}" alt="img" width="70%">
         </div>
     {% endif %}
 
@@ -75,10 +75,10 @@
         </div>
     <div style="display: block; margin-left: 5%; margin-top: 2%;">
         <p style="color: aliceblue;">Выпущена: {{ song.date_realeese }}</p>
-        {% if song.text %}
+        {% if song.author_text %}
             <p style="color: aliceblue;">Автор текста: {{ song.author_text }}</p>
         {% endif %}
-        {% if song.music %}
+        {% if song.author_music %}
             <p style="color: aliceblue;">Автор музыки: {{ song.author_music }}</p>
         {% endif %}
     </div>
@@ -89,7 +89,7 @@
     {% if song.image %}
         <h4 style="color: rgb(46, 240, 205); text-align: center; padding-bottom: 2%;">Обложка</h4>
         <div  style="display: flex; margin:auto; justify-content: center; margin-top: 2%;"> 
-            <img src="{{ song.image.url }}" alt="" width="70%">
+            <img src="{{ song.image.url }}" alt="img" width="70%">
         </div>
     {% endif %}
     {% if song.videofile %}

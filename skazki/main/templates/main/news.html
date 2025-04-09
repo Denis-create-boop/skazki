@@ -27,6 +27,37 @@
                 </div>
             {% endif %}
             <br>
+            <div class="up_fon_header">
+            {% if new.address_1 %}
+                {% if 'https://' in new.address_1 %}
+                    <a class="details" href="{{ new.address_1 }}">{{ new.name_address_1 }}</a>
+                {% else %}
+                    <a class="details" href="https://{{ new.address_1 }}">{{ new.name_address_1 }}</a>
+                {% endif %}
+            {% endif %}
+            <br>
+            {% if new.address_2 %}
+                {% if 'https://' in new.address_2 %}
+                    <a class="details" href="{{ new.address_2 }}">{{ new.name_address_2 }}</a>
+                {% else %}
+                    <a class="details" href="https://{{ new.address_2 }}">{{ new.nmme_address_2 }}</a>
+                {% endif %}
+            {% endif %}
+            {% if new.address_3 %}
+                {% if 'https://' in new.address_3 %}
+                    <a class="details" href="{{ new.address_3 }}">{{ new.name_address_3 }}</a>
+                {% else %}
+                    <a class="details" href="https://{{ new.address_3 }}">{{ new.name_address_3 }}</a>
+                {% endif %}
+            {% endif %}
+            {% if new.address_4 %}
+                {% if 'https://' in new.address_4 %}
+                    <a class="details" href="{{ new.address_4 }}">{{ new.name_address_4 }}</a>
+                {% else %}
+                    <a class="details" href="https://{{ new.address_4 }}">{{ new.name_address_4 }}</a>
+                {% endif %}
+            {% endif %}
+            </div>
             <hr style="color: bisque;">
         {% endfor %}
     </div>

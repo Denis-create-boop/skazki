@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'merch_shop',
     'galery',
     'albums',
+    'skazki_media',
 ]
 
 MIDDLEWARE = [

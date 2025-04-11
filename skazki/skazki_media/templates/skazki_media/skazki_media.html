@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if videos %}
+        <div class="news">
+            {% for video in videos %}
+                <div class="h-5">
+                    {{ video.name }}
+                </div>
+                <br>
+                {% if video.description %}
+                    <p class="p_news">{{ video.description }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+    {% else %}
+        <h3>Пока записей нет</h3>
+    {% endif %}
+{% endblock %}

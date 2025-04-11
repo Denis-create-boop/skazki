@@ -15,6 +15,7 @@ urlpatterns = [
     path("merch_shop/", include("merch_shop.urls", namespace="merch_shop")),
     path("galery/", include("galery.urls", namespace="galery")),
     path("albums/", include("albums.urls", namespace="albums")),
+    path("skazki_media/", include("skazki_media.urls", namespace="skazki_media")),
 ]
 
 if settings.DEBUG:

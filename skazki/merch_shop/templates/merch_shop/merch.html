@@ -8,12 +8,12 @@
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 94%; margin-left: 3%; margin-bottom: 5%;">
     {% for product in products %}
         <div class="cart_songs">  
-            <div>
+            <div class="category">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="img" width="100%" height="60%">
+                    <img src="{{ product.image.url }}" alt="img" width="100%" height="80%">
 
                 {% else %}
-                    <img src="{% static 'deps/images/Not found image.png' %}" alt="" width="100%" height="60%">
+                    <img src="{% static 'deps/images/Not found image.png' %}" alt="img" width="100%" height="80%">
 
                 {% endif %}
                 <a class="a_song" href="{% url 'merch_shop:product' product.slug product.name %}">{{ product.name }}</a> 

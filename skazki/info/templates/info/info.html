@@ -29,13 +29,13 @@
 		{% endif %}
 		{% if person.name_address_1 and person.address_1 %}
 			<a class="p_news person-a" href="{{ person.address_1 }}">
-				Страница в {{ person.name_address_1 }}	
+				{{ person.name_address_1 }}	
 			</a>
 		{% endif %}
 		<br>
 		{% if person.name_address_2 and person.address_2 %}
 			<a class="p_news person-a" href="{{ person_address_2}}">
-				Страница  в {{ person.name_address_2 }}
+				{{ person.name_address_2 }}
 			</a>
 		{% endif %}
 		<br>
@@ -60,6 +60,7 @@
 			<a class="p_news person-a" href="{{ address.address }}">
 				{{ address.name }}
 			</a>
+			<br>
 			<br>
 		{% endfor %}
 	</div>

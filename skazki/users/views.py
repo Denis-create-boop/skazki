@@ -1,15 +1,13 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Prefetch
 from django.shortcuts import render
 from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import redirect
 
-
 from carts.models import Cart
 from main.models import Concerts
-from users.forms import ProfileForm, UserLoginForm, UserRegistrationForm
+from users.forms import ProfileForm, UserLoginForm
 
 
 def login(request):
@@ -39,30 +37,6 @@ def login(request):
     concerts = Concerts.objects.all()
     context = {"title": "Сказки Черного Города - Авторизация", "form": form, "concerts": concerts, "info_text": "Авторизация"}
     return render(request, "users/login.html", context)
-
-
-def registration(request):
-    if request.method == "POST":
-        form = UserRegistrationForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-
-            session_key = request.session.session_key
-            
-            user = form.instance
-            auth.login(request, user)
-
-            if session_key:
-                Cart.objects.filter(session_key=session_key).update(user=user)
-
-            messages.success(request, f"{user.username}, Вы успешно зарегестрировались")
-            return HttpResponseRedirect(reverse("main:news"))
-    else:
-        form = UserRegistrationForm()
-        
-    concerts = Concerts.objects.all()
-    context = {"title": "Сказки Черного Города - Регистрация", "form": form, "concerts": concerts, "info_text": "Регистрация"}
-    return render(request, "users/registration.html", context)
 
 
 @login_required

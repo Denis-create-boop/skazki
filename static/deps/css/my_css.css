@@ -284,3 +284,10 @@ aside {
   max-width: 99%;
   max-height: 80%;
 }
+
+.date {
+  display: flex;
+  justify-content: right;
+  margin-right: 1%;
+  color: rgb(127, 130, 124);
+}

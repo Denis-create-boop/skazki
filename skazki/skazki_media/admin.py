@@ -8,6 +8,6 @@ class SkazkiMediaAdmin(admin.ModelAdmin):
     fields = [
         "name",
         "description",
-        "date",
+        "image",
         "videofile",
     ]

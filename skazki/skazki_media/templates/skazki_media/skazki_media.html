@@ -5,6 +5,9 @@
     {% if videos %}
         <div class="news">
             {% for video in videos %}
+                <div class="date">
+                    <p>{{ video.date }}</p>
+                </div>
                 <div class="h-5">
                     {{ video.name }}
                 </div>
@@ -12,6 +15,22 @@
                 {% if video.description %}
                     <p class="p_news">{{ video.description }}</p>
                 {% endif %}
+                {% if video.image %}
+                    <br>
+                    <div class="modal-body image-in-news">
+                        <img src="{{ video.image.url }}"
+                            class="img-fluid" alt="img" style="max-width: 70%; max-height: 40%;">
+                    </div>
+                {% endif %}
+                {% if video.videofile %}
+                    <br>
+                    <div class="modal-body image-in-news">
+                        <video style="max-width: 65%; max-height: 35%;" controls>
+                            <source src="{{ video.videofile.url }}" type="video/mp4">
+                    </video>
+                    </div>
+                {% endif %}
+                <br>
             {% endfor %}
         </div>
         

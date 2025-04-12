@@ -27,3 +27,5 @@ class UserAdmin(admin.ModelAdmin):
     inlines = [
         CartTabAdmin,
     ]
+
+

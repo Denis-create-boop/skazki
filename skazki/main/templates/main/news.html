@@ -6,6 +6,9 @@
 {% block content %}
     <div class="news">
         {% for new in news %}
+        <div class="date">
+            <p>{{ new.date }}</p>
+        </div>
         <div class="h-5">
             <h5>{{ new.name }}</h5>
         </div>

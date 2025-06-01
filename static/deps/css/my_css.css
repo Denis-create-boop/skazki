@@ -1,9 +1,10 @@
 
 body {
-  background: linear-gradient(-45deg, #100518, #0d1620, #090c18, #051f1f);
+  background: linear-gradient(135deg, #111a20, #172229, #131b20, #0b1013);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   height: 100vh;
+
 }
 @keyframes gradient {
   0% { background-position: 0% 50%; }
@@ -12,7 +13,7 @@ body {
 }
 
 h3 {
-  color: rgba(240, 255, 255, 0.789);
+  color: #9ba1a3;
 
 }
 
@@ -29,6 +30,7 @@ h3 {
   padding-top: 1%;
   display: block;
   text-align: center;
+  
 }
 .nav-button {
   display: flex;
@@ -47,13 +49,37 @@ h3 {
 .news {
   display: block;
   padding-left: 2%;
+  
 }
 
+.info_header {
+  color: #9ba1a3; 
+  display: block;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.concerts_header {
+  color: #9ba1a3; 
+  display: block;
+  margin-top: 2.9%;
+  margin-bottom: 3%;
+}
+
+.concerts_context {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  background-color: #0c1010;
+
+  
+}
 .text-on-button {
   display: flex;
   margin: auto;
   justify-content: center;
   padding: 1cap;
+  color: #9ba1a3
 }
 
 .text-on-button:hover {
@@ -131,20 +157,34 @@ button {
 aside {
   float: right;
   display: inline-block;
-  background: rgb(14, 14, 16);
+  /* background: rgb(14, 14, 16); */
+  background-color: #040d148d;
   width: 19%;
   margin-top: 1%;
   margin-right: 12%;
 
 }
 
+.asside_in_line {
+  display: inline-block; 
+  margin-left: 5%;
+  margin-top: 2%;
+  width: 25%; 
+  background-color: aliceblue;
+}
+
+.asside_content {
+  display: block;
+  margin-top: 5.2%;
+}
 
 .content {
   display: inline-block;
   margin-left: 12%;
   margin-top: 1%;
   width: 55%;
-  background-color: rgb(14, 14, 16);
+  background-color: #040d148d;
+  /* background-color: rgb(14, 14, 16); */
 }
 
 .p_news {
@@ -289,5 +329,6 @@ aside {
   display: flex;
   justify-content: right;
   margin-right: 1%;
+  margin-top: 2%;
   color: rgb(127, 130, 124);
 }

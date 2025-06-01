@@ -8,7 +8,7 @@ def info(request):
     persons = Persons.objects.all()
     addresses = Addresses.objects.all()
     context = {
-        "title": "Сказки Черного Города - Контактная информация",
+        "title": "Сказки Чёрного Города - Контактная информация",
         "concerts": concerts,
         "persons": persons,
         "addresses": addresses,

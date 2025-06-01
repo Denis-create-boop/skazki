@@ -53,7 +53,7 @@ class Concerts(models.Model):
         db_table = "concerts"
         verbose_name = "концерт"
         verbose_name_plural = "концерты"
-        ordering = ("-date",)
+        ordering = ("date",)
 
     def __str__(self):
         return self.name

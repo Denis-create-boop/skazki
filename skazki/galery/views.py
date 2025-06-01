@@ -8,7 +8,7 @@ def galery(request):
     images = Images.objects.all()
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Галерея",
+        "title": "Сказки Чёрного Города - Галерея",
         "categories": categories,
         "images": images,
         "concerts": concerts,

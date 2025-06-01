@@ -35,7 +35,7 @@ def login(request):
     else:
         form = UserLoginForm()
     concerts = Concerts.objects.all()
-    context = {"title": "Сказки Черного Города - Авторизация", "form": form, "concerts": concerts, "info_text": "Авторизация"}
+    context = {"title": "Сказки Чёрного Города - Авторизация", "form": form, "concerts": concerts, "info_text": "Авторизация"}
     return render(request, "users/login.html", context)
 
 
@@ -54,7 +54,7 @@ def profile(request):
 
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Личный кабинет", 
+        "title": "Сказки Чёрного Города - Личный кабинет", 
         "form": form,
         "concerts": concerts,
         "info_text": "Личный кабинет"
@@ -65,7 +65,7 @@ def users_cart(request):
     concerts = Concerts.objects.all()
     context = {
         "concerts": concerts,
-        "title": "Сказки Черного Города - Личный кабинет корзина",
+        "title": "Сказки Чёрного Города - Личный кабинет корзина",
         "info_text": "корзина",
     }
     return render(request, "users/users_cart.html", context=context)

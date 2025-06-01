@@ -28,4 +28,3 @@ class UserAdmin(admin.ModelAdmin):
         CartTabAdmin,
     ]
 
-

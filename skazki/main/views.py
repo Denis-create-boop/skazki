@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from main.models import News, Concerts, Info
+import datetime
 
 
 
@@ -8,7 +9,7 @@ def news(request):
     news = News.objects.all()
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Новости",
+        "title": "Сказки Чёрного Города - Новости",
         "news" : news,
         "concerts": concerts,
         "info_text": "Свежие новости:",
@@ -22,11 +23,11 @@ def about(request):
     concerts = Concerts.objects.all()
     info = Info.objects.all()
     context = {
-        "title": "Сказки Черного Города - О нас",
+        "title": "Сказки Чёрного Города - О нас",
         "content": "О нас",
         "concerts": concerts,
         "info": info,
-        "info_text": 'Информация о группе "Сказки Черного Города"',
+        "info_text": 'Информация о группе "Сказки Чёрного Города"',
     }
 
     return render(request, "main/about.html", context)
@@ -36,7 +37,7 @@ def details(request, concert_slug):
     concert = Concerts.objects.get(slug=concert_slug)
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Подробнее о концерте",
+        "title": "Сказки Чёрного Города - Подробнее о концерте",
         "concert": concert,
         "concerts": concerts,
         "flug": True,
@@ -48,7 +49,7 @@ def details(request, concert_slug):
 def afisha(request):
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Афиша",
+        "title": "Сказки Чёрного Города - Афиша",
         "concerts": concerts,
         "flug" : False,
         "info_text": "Афиша концертов:",

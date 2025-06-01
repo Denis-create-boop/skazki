@@ -17,7 +17,7 @@
     <body>
         
         <div class="up_fon_header">
-            <h3>Официальный сайт группы "Сказки Черного Города"</h3>
+            <h3>Официальный сайт группы "Сказки Чёрного Города"</h3>
         </div>
         
         <div class="up_fon">
@@ -29,10 +29,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'main:news' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'main:news' %}">
+                                        <h6 class="text-on-button">
                                             НОВОСТИ
-                                        </p>
+                                        </h6>
                                     
                                     </a>
                                 </button> 
@@ -42,10 +42,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'main:afisha' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'main:afisha' %}">
+                                        <h6 class="text-on-button">
                                             АФИША
-                                        </p>
+                                        </h6>
                                     
                                     </a>
                                 </button> 
@@ -56,10 +56,10 @@
                         <div class="div">
                             <div class="nav-button">
                                <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'main:about' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'main:about' %}">
+                                        <h6 class="text-on-button">
                                             ГРУППА
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button>  
                             </div>
@@ -68,10 +68,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'albums:albums' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'albums:albums' %}">
+                                        <h6 class="text-on-button">
                                             РЕЛИЗЫ
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button>
                             </div>  
@@ -80,10 +80,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'merch_shop:merch_shop' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'merch_shop:merch_shop' %}">
+                                        <h6 class="text-on-button">
                                             МАГАЗИН
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button>
                             </div> 
@@ -92,10 +92,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'galery:galery' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'galery:galery' %}">
+                                        <h6 class="text-on-button">
                                             ГАЛЕРЕЯ
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button>
                             </div>
@@ -104,10 +104,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'skazki_media:skazki_media' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'skazki_media:skazki_media' %}">
+                                        <h6 class="text-on-button">
                                             МЕДИА
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button> 
                             </div>
@@ -116,10 +116,10 @@
                         <div class="div">
                             <div class="nav-button">
                                 <button class="btn-group">
-                                    <a class="nav-link dropdown-toggle text-white" href="{% url 'info:info' %}">
-                                        <p class="text-on-button">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'info:info' %}">
+                                        <h6 class="text-on-button">
                                             КОНТАКТЫ
-                                        </p>
+                                        </h6>
                                     </a>
                                 </button> 
                             </div>
@@ -129,24 +129,24 @@
                             <div class="div">
                                 <div class="nav-button">
                                     <button class="btn-group">
-                                        <a class="nav-link text-white" href="{% url 'user:login' %}">
-                                            <p class="text-on-button">
+                                        <a class="nav-link" href="{% url 'user:login' %}">
+                                            <h6 class="text-on-button">
                                                 ВОЙТИ
-                                            </p>
+                                            </h6>
                                         </a>
                                     </button>
                                 </div> 
                             </div>
                                 
                         {% else %}
-                            <a class="nav-link button_enter dropdown-toggle text-white"
+                            <a class="nav-link button_enter dropdown-toggle"
                                 href="#"
                                 role="button" 
                                 data-bs-toggle="dropdown" 
                                 aria-expanded="false">
-                                <p class="text-on-button">
+                                <h6 class="text-on-button">
                                     ПРОФИЛЬ
-                                </p>
+                                </h6>
                             </a>
                             <ul class="dropdown-menu">
                                 
@@ -173,16 +173,20 @@
         
         <aside class="custom-shadow">
             {% csrf_token %}
-            <h5 style="color: rgba(203, 107, 33, 0.89); padding-left: 2%; margin-top: 2%;">Ближайшие концерты:</h5>
-            <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;;">
+            <div class="custom-shadow concerts_context">
+                <h5 class="concerts_header">Ближайшие концерты:</h5> 
+            </div>
+            
+            <!-- <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;;"> -->
+             <div class="custom-shadow asside_content">
             {% if concerts %}
             {% for concert in concerts %}
             
-            <div style="display: inline-block; margin-left: 5%; width: 25%; background-color: aliceblue;">
+            <div class="asside_in_line">
                 <p style="text-align: center; background-color: rgb(192, 64, 5);">{{ concert.get_month }}</p>
                 <h4 style="text-align: center; padding-bottom: 3%;">{{ concert.date.day }}</h4>
             </div>
-            <div style="float: right; display: inline-block; margin-right: 5%; width: 60%; color: aliceblue;">
+            <div style="float: right; display: inline-block; margin-right: 5%; width: 60%; margin-top: 5%; color: aliceblue;">
                 {{ concert.name }}
                 <br>
                 {{ concert.place }}
@@ -195,15 +199,25 @@
             {% else %}
                 <h5 style="display: block; text-align: center; color: aliceblue;">Ближайших концертов нет</h5>
             {% endif %}
+            </div>
         </aside>
 
 
         <main>
+            <div class="content custom-shadow">
+                <div style="display: flex; justify-content: center;  background-color: #0c1010;">
+                    <h5 class="info_header">{{ info_text }}</h5>
+                </div>
+                </div>
         <section>
             <!-- Контент -->
-            <div class="content custom-shadow">
-                <h5 style="color: rgba(203, 107, 33, 0.89); padding-left: 1%; padding-top: 1%;">{{ info_text }}</h5>
-                <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;">
+             <div class="content custom-shadow">
+            <!-- <div class="content custom-shadow">
+                <div style="display: flex; justify-content: center; height: 40px;  background-color: rgb(31, 38, 46);">
+                    <h5 class="info_header">{{ info_text }}</h5>
+                </div> -->
+                
+                <!-- <hr style="color: rgba(179, 78, 6, 0.885); padding-top: 0%;"> -->
                 <!-- Контент на странице --> 
                     {% block content %}{% endblock %}
                     {% include 'includes/notifications.html' %}

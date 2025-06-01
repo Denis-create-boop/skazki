@@ -15,11 +15,11 @@ def merch_shop(request):
     current_page = paginator.page(int(page))
     
     context = {
-        "title": "Сказки Черного Города - Магазин",
+        "title": "Сказки Чёрного Города - Магазин",
         "categories": categories,
         "merch_shop": current_page,
         "concerts": concerts,
-        "info_text": 'Магазин группы "Сказки Черного Города"',
+        "info_text": 'Магазин группы "Сказки Чёрного Города"',
 
     }
     return render(request, 'merch_shop/merch_categories.html', context=context)
@@ -40,7 +40,7 @@ def get_products(request, category_slug, name):
     current_page = paginator.page(int(page))
 
     context = {
-        "title": "Сказки Черного Города - " + name,
+        "title": "Сказки Чёрного Города - " + name,
         "products": current_page,
         "slug_url": category_slug,
         "concerts": concerts,
@@ -55,7 +55,7 @@ def product(request, product_slug, name):
     product = Products.objects.get(slug=product_slug)
 
     context = {
-        "title": f"Сказки Черного Города - Магазин/{name}",
+        "title": f"Сказки Чёрного Города - Магазин/{name}",
         "product": product,
         "concerts": concerts,
         "info_text": name,

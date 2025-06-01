@@ -9,7 +9,7 @@ def albums(request):
     singles = Singles.objects.all()
     
     context = {
-        "title": "Сказки Черного Города - Релизы",
+        "title": "Сказки Чёрного Города - Релизы",
         "concerts": concerts,
         "albums": albums,
         "info_text": "Релизы",
@@ -25,7 +25,7 @@ def details_album(request, album_slug):
     detail_about_album = Albums.objects.get(slug=album_slug)
     concerts = Concerts.objects.all()
     context = {
-        "title": f"Сказки Черного Города - {detail_about_album.name}",
+        "title": f"Сказки Чёрного Города - {detail_about_album.name}",
         "album": detail_about_album,
         "songs": songs,
         "concerts": concerts,
@@ -50,7 +50,7 @@ def details_song(request, song_slug, album_slug=None):
     
     concerts = Concerts.objects.all()
     context = {
-        "title": f"Сказки Черного Города - {song.name}",
+        "title": f"Сказки Чёрного Города - {song.name}",
         "song": song,
         "album": album,
         "concerts": concerts,

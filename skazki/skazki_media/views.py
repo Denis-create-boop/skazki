@@ -6,7 +6,7 @@ def skazki_media(request):
     videos = Skazki_media.objects.all()
     concerts = Concerts.objects.all()
     context = {
-        "title": "Сказки Черного Города - Медиа",
+        "title": "Сказки Чёрного Города - Медиа",
         "info_text": "Медиа",
         "concerts": concerts,
         "videos": videos,

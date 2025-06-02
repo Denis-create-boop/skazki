@@ -4,11 +4,13 @@ from django.core.paginator import Paginator
 from merch_shop.models import Products, Categories
 from main.models import Concerts
 
+from datetime import datetime
+
 
 def merch_shop(request):
     page = request.GET.get("page", 1)
     merch_shop = Categories.objects.all()
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
         
     categories = Categories.objects.all()
     paginator = Paginator(merch_shop, 4)
@@ -30,7 +32,7 @@ def get_products(request, category_slug, name):
     page = request.GET.get("page", 1)
     on_sale = request.GET.get("on_sale", None)
     merch_shop = Products.objects.filter(category__slug=category_slug)
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
 
     if on_sale:
         merch_shop = Products.objects.filter(category__slug=category_slug)
@@ -51,7 +53,7 @@ def get_products(request, category_slug, name):
 
 
 def product(request, product_slug, name):
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     product = Products.objects.get(slug=product_slug)
 
     context = {

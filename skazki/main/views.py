@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from main.models import News, Concerts, Info
-import datetime
+from datetime import datetime
 
 
 
 def news(request):
 
     news = News.objects.all()
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
+    delete_concerts = Concerts.objects.filter(date__lt=datetime.now())
+    delete_concerts.delete()
+    
     context = {
         "title": "Сказки Чёрного Города - Новости",
         "news" : news,
@@ -20,7 +23,7 @@ def news(request):
 
 
 def about(request):
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     info = Info.objects.all()
     context = {
         "title": "Сказки Чёрного Города - О нас",
@@ -47,7 +50,7 @@ def details(request, concert_slug):
 
 
 def afisha(request):
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     context = {
         "title": "Сказки Чёрного Города - Афиша",
         "concerts": concerts,

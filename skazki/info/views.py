@@ -2,9 +2,11 @@ from django.shortcuts import render
 from main.models import Concerts
 from info.models import Persons, Addresses
 
+from datetime import datetime
+
 
 def info(request):
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     persons = Persons.objects.all()
     addresses = Addresses.objects.all()
     context = {

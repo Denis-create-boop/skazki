@@ -2,9 +2,11 @@ from django.shortcuts import render
 from main.models import Concerts
 from albums.models import Albums, Songs, Singles
 
+from datetime import datetime
+
 
 def albums(request):
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     albums = Albums.objects.all()
     singles = Singles.objects.all()
     
@@ -23,7 +25,7 @@ def albums(request):
 def details_album(request, album_slug):
     songs = Songs.objects.filter(album__slug=album_slug)
     detail_about_album = Albums.objects.get(slug=album_slug)
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     context = {
         "title": f"Сказки Чёрного Города - {detail_about_album.name}",
         "album": detail_about_album,
@@ -48,7 +50,7 @@ def details_song(request, song_slug, album_slug=None):
         album = None
         
     
-    concerts = Concerts.objects.all()
+    concerts = Concerts.objects.filter(date__gte=datetime.now())
     context = {
         "title": f"Сказки Чёрного Города - {song.name}",
         "song": song,
